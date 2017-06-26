@@ -87,3 +87,5 @@ hs_err_pid*
 # End of https://www.gitignore.io/api/java,eclipse
 
 bit-cinema/build/
+mini2_1/build/classes/config/mybatis/db.properties
+mini2_1/build/
