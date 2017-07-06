@@ -1,4 +1,4 @@
-package kr.co.mlec.review.service;
+package kr.co.mlec.service;
 
 public interface ReviewService {
 
