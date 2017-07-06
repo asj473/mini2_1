@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.mlec.mapper.BoardMapper">
+<mapper namespace="kr.co.mlec.mapper.ReviewMapper">
+
+
 	<insert id="insertBoard" parameterType="BoardVO">
 		<selectKey keyProperty="no" resultType="int" order="BEFORE">
 			select s_board_no.nextval from dual
