@@ -4,30 +4,29 @@ import java.util.Date;
 
 public class ReviewVO {
 	private int no;
-	private int category;
-	private String store;
+	private int storeNo;
 	private String id;
 	private String title;
 	private String content;
+	private int rating;
+	public int getRating() {
+		return rating;
+	}
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
 	private Date regDate;
-	
 	public int getNo() {
 		return no;
 	}
 	public void setNo(int no) {
 		this.no = no;
 	}
-	public int getCategory() {
-		return category;
+	public int getStoreNo() {
+		return storeNo;
 	}
-	public void setCategory(int category) {
-		this.category = category;
-	}
-	public String getStore() {
-		return store;
-	}
-	public void setStore(String store) {
-		this.store = store;
+	public void setStoreNo(int storeNo) {
+		this.storeNo = storeNo;
 	}
 	public String getId() {
 		return id;
@@ -53,6 +52,4 @@ public class ReviewVO {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
-	
-	
 }
