@@ -89,3 +89,5 @@ hs_err_pid*
 bit-cinema/build/
 mini2_1/build/classes/config/mybatis/db.properties
 mini2_1/build/
+themat/.classpath
+themat/.settings/org.eclipse.wst.common.project.facet.core.xml
