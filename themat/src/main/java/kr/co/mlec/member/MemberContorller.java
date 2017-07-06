@@ -1,4 +1,4 @@
-package kr.co.mlec.controller;
+package kr.co.mlec.member;
 
 import javax.servlet.http.HttpServletRequest;
 
