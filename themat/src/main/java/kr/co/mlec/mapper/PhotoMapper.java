@@ -7,5 +7,5 @@ import kr.co.mlec.vo.PhotoVO;
 public interface PhotoMapper {
 
 	public List<PhotoVO> selectBoard() throws Exception;
-	
+	public PhotoVO selectBoardByNo(int no) throws Exception;
 }
