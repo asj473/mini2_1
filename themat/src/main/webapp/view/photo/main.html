@@ -63,23 +63,29 @@
 	<table>		
 		<tr>		
 		  <td>번호<td>
-		  <td>{{no}}<td>
+		  <td>{{board.no}}<td>
 		</tr>		
 		<tr>		
 		  <td>제목<td>
-			<td>{{title}}<td>
+			<td>{{board.title}}<td>
 		</tr>		
 		<tr>		
 		  <td>글쓴이<td>
-			<td>{{writer}}<td>
+			<td>{{board.writer}}<td>
 		</tr>		
 		<tr>		
 		  <td>내용<td>
-			<td>{{content}}<td>
+			<td>{{board.content}}<td>
 		</tr>		
 		<tr>		
 		  <td>등록일<td>
-		  <td>{{regDate}}</td>	  
+		  <td>{{board.regDate}}</td>	  
+		</tr>
+		<tr>		
+		  <td>첨부파일<td>
+		  <td>
+		  	<img src="http://localhost:8000/themat/upload{{file.filePath}}/{{file.systemName}}"/>
+		  </td>	  
 		</tr>
 	</table>
 </script>
@@ -99,9 +105,9 @@
 <script>
 	$("#board").on("click", "#write", function() {
 		
-		 //var source = $("#write-template").html(); 
-		 //var template = Handlebars.compile(source); 
-		 //var html = template(result.board);
+		var source = $("#write-template").html(); 
+		var template = Handlebars.compile(source); 
+		//var html = template(result.board);
 		$("#board").html(template);
 	})
 	
@@ -123,7 +129,8 @@
 		
 		 var source = $("#detail-template").html(); 
 		 var template = Handlebars.compile(source); 
-		 var html = template(result.board);
+		 //var html = template(result.board);
+		 var html = template(result);
 		$("#board").html(html);
 	}
 

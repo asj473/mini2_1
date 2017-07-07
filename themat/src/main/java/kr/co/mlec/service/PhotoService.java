@@ -8,6 +8,6 @@ import kr.co.mlec.vo.PhotoVO;
 public interface PhotoService {
 	public List<PhotoVO> list() throws Exception;
 	public Map<String, Object> detail(int no) throws Exception;
-	
+	public void write(Map<String, Object> boardMap) throws Exception;
 	
 }

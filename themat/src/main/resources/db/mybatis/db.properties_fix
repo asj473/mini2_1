@@ -1,0 +1,2 @@
+jdbc.oracle.url=jdbc:mysql://localhost:3310/mini2
+jdbc:mysql://localhost:3306/Peoples?autoReconnect=true&useSSL=false

@@ -26,8 +26,23 @@
 		  from photo_board  
 		 where no = #{no}
 	</select>
-	<!-- 
-	<resultMap id="boardFileMap" type="boardFileVO" >
+	
+	
+	
+	<insert id="insertBoard" parameterType="photoVO">
+		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+			 SELECT MAX(no)+1 FROM photo_board 
+		</selectKey>
+	    insert into photo_board(           
+		    no, title, writer, content   
+		) values (                       
+		    #{no}, #{title}, #{writer}, #{content} 
+		)                               
+	</insert>
+
+
+	
+	<resultMap id="photoFileMap" type="photoFileVO" >
 		<result property="fileNo" column="file_no"/>
 		<result property="no" column="no"/>
 		<result property="oriName" column="ori_name"/>
@@ -36,17 +51,32 @@
 		<result property="fileSize" column="file_size"/>
 	</resultMap>
 	
-	<select id="selectBoardFileByNo" parameterType="int" resultMap="boardFileMap">
+	 <insert id="insertBoardFile" parameterType="photoFileVO">
+		insert into photo_file (
+			no,         
+			ori_name, 
+			system_name, 
+			file_path, 
+			file_size
+		) values (
+			#{no}, 
+			#{oriName}, 
+			#{systemName},
+			#{filePath}, 
+			#{fileSize}		
+		)
+	</insert>
+	
+	<select id="selectBoardFileByNo" parameterType="int" resultMap="photoFileMap">
 	    select file_no,
 	           no,
 	           ori_name,
 	           system_name,
 	           file_path,
 	           file_size
-	      from tb_board_file
+	      from photo_file
 	     where no = #{no}      
 	</select>  
- -->
 
 
 
