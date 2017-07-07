@@ -6,15 +6,41 @@
 
 	<resultMap type="ReviewVO" id="reviewMap">
 		<result column="no" property="no"/>
+		<result column="store_no" property="storeNo"/>
+		<result column="id" property="id"/>
 		<result column="title" property="title"/>
 		<result column="content" property="content"/>
 		<result column="rating" property="rating"/>
-		<result column="store_id" property="storeId"/>
+		<result column="reg_date" property="regDate"/>
 	</resultMap>
 
-	<select id="listReview" resultMap="reviewMap">
+	<select id="listReview" parameterType="int" resultMap="reviewMap">
 		select * 
-		  from review
-		 order by no
+		  from review, store
+	     where review.store_no = store.no
+	       and review.store_no = #{no}
+	</select>
+
+
+
+	<resultMap type="StoreVO" id="storeMap">
+		<result column="no" property="no"/>
+		<result column="category" property="category"/>
+		<result column="name" property="name"/>
+		<result column="address" property="address"/>
+		<result column="call" property="call"/>
+		<result column="rating" property="rating"/>
+	</resultMap>
+	
+	<select id="listStore" resultMap="storeMap">
+		select *
+		  from store
+		 
+	</select>
+	
+	<select id="detailStore" parameterType="int" resultMap="storeMap">
+		select *
+	      from store
+	     where no = #{no}
 	</select>
 </mapper>

@@ -1,6 +1,6 @@
 package kr.co.mlec.vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class ReviewVO {
 	private int no;
@@ -9,13 +9,14 @@ public class ReviewVO {
 	private String title;
 	private String content;
 	private int rating;
+	private Date regDate;
+	
 	public int getRating() {
 		return rating;
 	}
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
-	private Date regDate;
 	public int getNo() {
 		return no;
 	}

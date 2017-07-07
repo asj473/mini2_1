@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>리뷰 게시판</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+<script src="/themat/lib/js/jquery.min.js"></script>
+</head>
+<body>
+	<div class="js-sticky">
+		<div class="fh5co-main-nav">
+			<div class="container-fluid">
+				<div class="fh5co-menu-1">
+					<a href="index.html" data-nav-section="events">home</a>
+					<a href="#" data-nav-section="features">Gallery</a>
+				</div>
+				<div class="fh5co-logo">
+					<a href="index.html">Themat</a>
+				</div>
+				<div class="fh5co-menu-2">
+					<a href="#" data-nav-section="menu">Review</a>
+					<a href="#" data-nav-section="reservation">Q&A</a>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+		
+		
+		
+	<div>
+		<div id="list">
+		</div>
+		
+		<div></div>
+	</div>
+	
+<script id="review-store" type="text/x-handlebars-template"> 
+	<table>
+		<thead>
+		<tr>
+			<th>가</th>		
+			<th>나</th>		
+			<th>다</th>		
+		</tr>
+		</thead>
+		<tbody>
+       	 {{#list}} 
+        <tr> 
+            <td>{{category}}</td> 
+            <td><a href='javascript:listReview({{no}})'>{{name}}</a></td> 
+            <td>{{rating}}</td> 
+        </tr> 
+        {{/list}} 
+		</tbody>
+	</table>
+		<button id='test' type='button'>리뷰리스트</button>
+</script>
+<script id="entry-template" type="text/x-handlebars-template"> 
+	<table>
+		<thead>
+		<tr>
+			<th>가</th>		
+			<th>나</th>		
+			<th>다</th>		
+			<th>라</th>		
+			<th>마</th>		
+			<th>바</th>		
+			<th>사</th>		
+		</tr>
+		</thead>
+		<tbody>
+       	 {{#list}} 
+        <tr> 
+            <td>{{no}}</td> 
+            <td>{{storeNo}}</td> 
+            <td>{{id}}</td> 
+            <td><a href='javascript:'>{{title}}</a></td> 
+            <td>{{content}}</td> 
+            <td>{{rating}}</td> 
+            <td>{{regDate}}</td> 
+        </tr> 
+        {{/list}} 
+		</tbody>
+	</table>
+</script>
+
+
+<script>
+	function listStore(){
+		$.ajax({
+			url : "/themat/review/listStore.do",
+			dataType : "json"
+		}).done(function(result){
+			console.dir(result);
+			var source = $("#review-store").html(); 
+			//핸들바 템플릿 컴파일
+			var template = Handlebars.compile(source); 
+			//핸들바 템플릿에 데이터를 바인딩해서 HTML 생성
+			var html = template(result);
+			//생성된 HTML을 DOM에 주입
+			$('#list').html(html);
+			
+		});
+	}
+	
+	function listReview(no){
+		$.ajax({
+			url : "/themat/review/listReview.do",
+			data : {no:no},
+			dataType : "json"
+		}).done(function(result){
+			console.dir(result);
+			
+			var store = result.store;
+			console.log(store);
+			var html = "";
+			html += "<table>";
+			html += "<tr>";
+			html += "<td>"+store.name+"</td>";
+			html += "<td>"+store.address+"</td>";
+			html += "<td>"+store.call+"</td>";
+			html += "<td>"+store.rating+"</td>";
+			html += "</tr>";
+			html += "</table>";
+			$('#list').html(html);
+			
+			var source = $("#entry-template").html(); 
+			//핸들바 템플릿 컴파일
+			var template = Handlebars.compile(source); 
+			//핸들바 템플릿에 데이터를 바인딩해서 HTML 생성
+			html = template(result);
+			//생성된 HTML을 DOM에 주입
+			$('#list').append(html);
+			
+		});
+	}
+	
+	function detailReview(){
+		
+	}
+	
+	function deleteReview(){
+		
+	}
+	
+	function updateReview(){
+		
+	}
+	
+	$("#list").on(
+  			 "click", 
+  			 "#test", 
+  			 function(){
+  				console.log()
+  				listReview();
+  			 }
+	);
+// 	$("#test").on("click", function(){
+// 		listReview();
+// 	});
+	
+	listStore();
+</script>
+</body>
+</html>

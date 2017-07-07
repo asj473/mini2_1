@@ -32,26 +32,26 @@
 	<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic|Merriweather:300,400italic,300italic,400,700italic' rel='stylesheet' type='text/css'>
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="/themat/resources/css/animate.css">
+	<link rel="stylesheet" href="/themat/lib/css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="/themat/resources/css/icomoon.css">
+	<link rel="stylesheet" href="/themat/lib/css/icomoon.css">
 	<!-- Simple Line Icons -->
-	<link rel="stylesheet" href="/themat/resources/css/simple-line-icons.css">
+	<link rel="stylesheet" href="/themat/lib/css/simple-line-icons.css">
 	<!-- Datetimepicker -->
-	<link rel="stylesheet" href="/themat/resources/css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" href="/themat/lib/css/bootstrap-datetimepicker.min.css">
 	<!-- Flexslider -->
-	<link rel="stylesheet" href="/themat/resources/css/flexslider.css">
+	<link rel="stylesheet" href="/themat/lib/css/flexslider.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="/themat/resources/css/bootstrap.css">
+	<link rel="stylesheet" href="/themat/lib/css/bootstrap.css">
 
-	<link rel="stylesheet" href="/themat/resources/css/style.css">
+	<link rel="stylesheet" href="/themat/lib/css/style.css">
 
 
 	<!-- Modernizr JS -->
-	<script src="/themat/resources/js/modernizr-2.6.2.min.js"></script>
+	<script src="/themat/lib/js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
-	<script src="/themat/resources/js/respond.min.js"></script>
+	<script src="/themat/lib/js/respond.min.js"></script>
 	<![endif]-->
 
 	</head>
@@ -72,9 +72,9 @@
 					</div>
 				</div>
 			  	<ul class="slides">
-			   	<li style="background-image: url(/themat/resources/images/slide_1.jpg);" data-stellar-background-ratio="0.5"></li>
-			   	<li style="background-image: url(/themat/resources/images/slide_2.jpg);" data-stellar-background-ratio="0.5"></li>
-			   	<li style="background-image: url(/themat/resources/images/slide_3.jpg);" data-stellar-background-ratio="0.5"></li>
+			   	<li style="background-image: url(/themat/lib/images/slide_1.jpg);" data-stellar-background-ratio="0.5"></li>
+			   	<li style="background-image: url(/themat/lib/images/slide_2.jpg);" data-stellar-background-ratio="0.5"></li>
+			   	<li style="background-image: url(/themat/lib/images/slide_3.jpg);" data-stellar-background-ratio="0.5"></li>
 			  	</ul>
 
 			</div>
@@ -82,35 +82,22 @@
 		</div>
 		
 		<div class="js-sticky">
-			<div class="fh5co-main-nav">
-				<div class="container-fluid">
-					<div class="fh5co-menu-1">
-<!-- 						<a href="#" data-nav-section="home">Home</a> -->
-<!-- 						<a href="#" data-nav-section="about">About</a> -->
-						<a href="#" data-nav-section="events">Talk</a>
-						<a href="#" data-nav-section="features">Gallery</a>
-					</div>
-					<div class="fh5co-logo">
-						<a href="index.html">Themat</a>
-					</div>
-					<div class="fh5co-menu-2">
-						<a href="#" data-nav-section="menu">Review</a>
-						<a href="#" data-nav-section="reservation">Q&A</a>
-					</div>
+		<div class="fh5co-main-nav">
+			<div class="container-fluid">
+				<div class="fh5co-menu-1">
+					<a href="index.html" data-nav-section="events">home</a>
+					<a href="#" data-nav-section="features">Gallery</a>
 				</div>
-				
+				<div class="fh5co-logo">
+					<a href="index.html">Themat</a>
+				</div>
+				<div class="fh5co-menu-2">
+					<a href="#" data-nav-section="menu">Review</a>
+					<a href="#" data-nav-section="reservation">Q&A</a>
+				</div>
 			</div>
 		</div>
-
-		<div id="fh5co-about" data-section="about">
-			<div class="fh5co-2col fh5co-bg to-animate-2" style="background-image: url(/themat/resources/images/res_img_1.jpg)"></div>
-			<div class="fh5co-2col fh5co-text">
-				<h2 class="heading to-animate">About Us</h2>
-				<p class="to-animate"><span class="firstcharacter">F</span>ar far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life.</p>
-				<p class="text-center to-animate"><a href="#" class="btn btn-primary btn-outline">Get in touch</a></p>
-			</div>
 		</div>
-
 
 		<div id="fh5co-featured" data-section="features">
 			<div class="container">
@@ -123,7 +110,7 @@
 				<div class="row">
 					<div class="fh5co-grid">
 						<div class="fh5co-v-half to-animate-2">
-							<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(/themat/resources/images/res_img_1.jpg)"></div>
+							<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(/themat/lib/images/res_img_1.jpg)"></div>
 							<div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
 								<h2>Fresh Mushrooms</h2>
 								<span class="pricing">$7.50</span>
@@ -132,7 +119,7 @@
 						</div>
 						<div class="fh5co-v-half">
 							<div class="fh5co-h-row-2 to-animate-2">
-								<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(/themat/resources/images/res_img_2.jpg)"></div>
+								<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(/themat/lib/images/res_img_2.jpg)"></div>
 								<div class="fh5co-v-col-2 fh5co-text arrow-left">
 									<h2>Grilled Chiken Salad</h2>
 									<span class="pricing">$12.00</span>
@@ -140,7 +127,7 @@
 								</div>
 							</div>
 							<div class="fh5co-h-row-2 fh5co-reversed to-animate-2">
-								<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(/themat/resources/images/res_img_8.jpg)"></div>
+								<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(/themat/lib/images/res_img_8.jpg)"></div>
 								<div class="fh5co-v-col-2 fh5co-text arrow-right">
 									<h2>Cheese and Garlic Toast</h2>
 									<span class="pricing">$4.50</span>
@@ -151,7 +138,7 @@
 
 						<div class="fh5co-v-half">
 							<div class="fh5co-h-row-2 fh5co-reversed to-animate-2">
-								<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(/themat/resources/images/res_img_7.jpg)"></div>
+								<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(/themat/lib/images/res_img_7.jpg)"></div>
 								<div class="fh5co-v-col-2 fh5co-text arrow-right">
 									<h2>Organic Egg</h2>
 									<span class="pricing">$4.99</span>
@@ -159,7 +146,7 @@
 								</div>
 							</div>
 							<div class="fh5co-h-row-2 to-animate-2">
-								<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(/themat/resources/images/res_img_6.jpg)"></div>
+								<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(/themat/lib/images/res_img_6.jpg)"></div>
 								<div class="fh5co-v-col-2 fh5co-text arrow-left">
 									<h2>Salad with Crispy Chicken</h2>
 									<span class="pricing">$8.50</span>
@@ -168,7 +155,7 @@
 							</div>
 						</div>
 						<div class="fh5co-v-half to-animate-2">
-							<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(/themat/resources/images/res_img_3.jpg)"></div>
+							<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(/themat/lib/images/res_img_3.jpg)"></div>
 							<div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
 								<h2>Tomato Soup with Chicken</h2>
 								<span class="pricing">$12.99</span>
@@ -182,37 +169,37 @@
 			</div>
 		</div>
 
-		<div id="fh5co-type" style="background-image: url(/themat/resources/images/slide_3.jpg);" data-stellar-background-ratio="0.5">
-			<div class="fh5co-overlay"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-3 to-animate">
-						<div class="fh5co-type">
-							<h3 class="with-icon icon-1">Fruits</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						</div>
-					</div>
-					<div class="col-md-3 to-animate">
-						<div class="fh5co-type">
-							<h3 class="with-icon icon-2">Sea food</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						</div>
-					</div>
-					<div class="col-md-3 to-animate">
-						<div class="fh5co-type">
-							<h3 class="with-icon icon-3">Vegetables</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						</div>
-					</div>
-					<div class="col-md-3 to-animate">
-						<div class="fh5co-type">
-							<h3 class="with-icon icon-4">Meat</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+<!-- 		<div id="fh5co-type" style="background-image: url(/themat/lib/images/slide_3.jpg);" data-stellar-background-ratio="0.5"> -->
+<!-- 			<div class="fh5co-overlay"></div> -->
+<!-- 			<div class="container"> -->
+<!-- 				<div class="row"> -->
+<!-- 					<div class="col-md-3 to-animate"> -->
+<!-- 						<div class="fh5co-type"> -->
+<!-- 							<h3 class="with-icon icon-1">Fruits</h3> -->
+<!-- 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-md-3 to-animate"> -->
+<!-- 						<div class="fh5co-type"> -->
+<!-- 							<h3 class="with-icon icon-2">Sea food</h3> -->
+<!-- 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-md-3 to-animate"> -->
+<!-- 						<div class="fh5co-type"> -->
+<!-- 							<h3 class="with-icon icon-3">Vegetables</h3> -->
+<!-- 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-md-3 to-animate"> -->
+<!-- 						<div class="fh5co-type"> -->
+<!-- 							<h3 class="with-icon icon-4">Meat</h3> -->
+<!-- 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 
 		<div id="fh5co-menus" data-section="menu">
 			<div class="container">
@@ -230,7 +217,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_5.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_5.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Pineapple Juice</h3>
@@ -244,7 +231,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_6.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_6.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Green Juice</h3>
@@ -258,7 +245,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_7.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_7.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Soft Drinks</h3>
@@ -272,7 +259,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_5.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_5.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Carlo Rosee Drinks</h3>
@@ -293,7 +280,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_3.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_3.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Beef Steak</h3>
@@ -307,7 +294,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_4.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_4.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Tomato with Chicken</h3>
@@ -321,7 +308,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_2.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_2.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Sausages from Italy</h3>
@@ -335,7 +322,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_8.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_8.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Beef Grilled</h3>
@@ -356,7 +343,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_5.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_5.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Pineapple Juice</h3>
@@ -370,7 +357,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_6.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_6.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Green Juice</h3>
@@ -384,7 +371,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_7.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_7.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Soft Drinks</h3>
@@ -398,7 +385,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_5.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_5.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Carlo Rosee Drinks</h3>
@@ -419,7 +406,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_3.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_3.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Beef Steak</h3>
@@ -433,7 +420,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_4.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_4.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Tomato with Chicken</h3>
@@ -447,7 +434,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_2.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_2.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Sausages from Italy</h3>
@@ -461,7 +448,7 @@
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="/themat/resources/images/res_img_8.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="/themat/lib/images/res_img_8.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 										</figure>
 										<div>
 											<h3>Beef Grilled</h3>
@@ -484,7 +471,7 @@
 			</div>
 		</div>
 
-		<div id="fh5co-events" data-section="events" style="background-image: url(/themat/resources/images/slide_2.jpg);" data-stellar-background-ratio="0.5">
+		<div id="fh5co-events" data-section="events" style="background-image: url(/themat/lib/images/slide_2.jpg);" data-stellar-background-ratio="0.5">
 			<div class="fh5co-overlay"></div>
 			<div class="container">
 				<div class="row text-center fh5co-heading row-padded">
@@ -588,7 +575,7 @@
 		<div class="container">
 			<div class="row row-padded">
 				<div class="col-md-12 text-center">
-					<p class="to-animate">&copy; 2016 Foodee Free HTML5 Template. <br> Designed by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> Demo /themat/resources/images: <a href="http://pexels.com/" target="_blank">Pexels</a> <br> Tasty Icons Free <a href="http://handdrawngoods.com/store/tasty-icons-free-food-icons/" target="_blank">handdrawngoods</a>
+					<p class="to-animate">&copy; 2016 Foodee Free HTML5 Template. <br> Designed by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> Demo /themat/lib/images: <a href="http://pexels.com/" target="_blank">Pexels</a> <br> Tasty Icons Free <a href="http://handdrawngoods.com/store/tasty-icons-free-food-icons/" target="_blank">handdrawngoods</a>
 					</p>
 					<p class="text-center to-animate"><a href="#" class="js-gotop">Go To Top</a></p>
 				</div>
@@ -607,28 +594,28 @@
 
 	
 	<!-- jQuery -->
-	<script src="/themat/resources/js/jquery.min.js"></script>
+	<script src="/themat/lib/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="/themat/resources/js/jquery.easing.1.3.js"></script>
+	<script src="/themat/lib/js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="/themat/resources/js/bootstrap.min.js"></script>
+	<script src="/themat/lib/js/bootstrap.min.js"></script>
 	<!-- Bootstrap DateTimePicker -->
-	<script src="/themat/resources/js/moment.js"></script>
-	<script src="/themat/resources/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="/themat/lib/js/moment.js"></script>
+	<script src="/themat/lib/js/bootstrap-datetimepicker.min.js"></script>
 	<!-- Waypoints -->
-	<script src="/themat/resources/js/jquery.waypoints.min.js"></script>
+	<script src="/themat/lib/js/jquery.waypoints.min.js"></script>
 	<!-- Stellar Parallax -->
-	<script src="/themat/resources/js/jquery.stellar.min.js"></script>
+	<script src="/themat/lib/js/jquery.stellar.min.js"></script>
 
 	<!-- Flexslider -->
-	<script src="/themat/resources/js/jquery.flexslider-min.js"></script>
+	<script src="/themat/lib/js/jquery.flexslider-min.js"></script>
 	<script>
 		$(function () {
 	       $('#date').datetimepicker();
 	   });
 	</script>
 	<!-- Main JS -->
-	<script src="/themat/resources/js/main.js"></script>
+	<script src="/themat/lib/js/main.js"></script>
 
 	</body>
 </html>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.mlec.mapper.ReviewMapper;
 import kr.co.mlec.vo.ReviewVO;
+import kr.co.mlec.vo.StoreVO;
 
 @Service("reviewService")
 public class ReviewServiceImpl implements ReviewService{
@@ -15,8 +16,8 @@ public class ReviewServiceImpl implements ReviewService{
 	private ReviewMapper reviewMapper;
 	
 	@Override
-	public List<ReviewVO> listReview() throws Exception {
-		List<ReviewVO> list = reviewMapper.listReview();
+	public List<ReviewVO> listReview(int no) throws Exception {
+		List<ReviewVO> list = reviewMapper.listReview(no);
 		
 		return list;
 	}
@@ -40,6 +41,20 @@ public class ReviewServiceImpl implements ReviewService{
 	@Override
 	public void deleteReview(int no) throws Exception {
 		reviewMapper.deleteReview(no);
+	}
+
+	@Override
+	public List<StoreVO> listStroe() throws Exception {
+		List<StoreVO> list = reviewMapper.listStore();
+		
+		return list;
+	}
+
+	@Override
+	public StoreVO detailStore(int no) throws Exception {
+		StoreVO store = reviewMapper.detailStore(no);
+		
+		return store;
 	}
 
 }
