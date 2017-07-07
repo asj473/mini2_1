@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+
+<style type="text/css">
+	th, td{
+		border: 1px solid;
+	}
+</style>
+</head>
+
+<body>
+
+	 
+	 <div id="top"></div>
+		
+	<script id="entry-template" type="text/x-handlebars-template">
+		<table>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>글쓴이</th>
+				<th>날짜</th>
+			</tr>
+		
+                 {{#list}} 
+                 <tr> 
+                     <td>{{no}}</td> 
+                     <td><a href='/themat/qna/dtailForm.do?bno={{no}}'>{{title}} </a></td> 
+                     <td>{{writer}}</td> 
+                     <td>{{regDate}}</td> 
+                 </tr> 
+                 {{/list}} 
+		</table>
+     </script>
+		
+		
+	 
+	 
+	 <div id="footter"></div>
+	 
+	 
+<script type="text/javascript">
+	$.ajax({
+		url:"/themat/qna/list.do",	
+		dataType:"json"
+	}).done(function(result){
+		var source = $("#entry-template").html(); 
+
+		var template = Handlebars.compile(source); 	
+		var html = template(result);
+		
+		$('body').append(html);
+		
+	});
+	 
+	 
+	 
+	 </script>
+		
+</body>
+</html>

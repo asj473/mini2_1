@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+
+</head>
+<body>
+ 
+ <div id="top"></div>
+		
+		
+	<div id="ditail"></div>
+	<script id="entry-template" type="text/x-handlebars-template">
+		<table>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>글쓴이</th>
+				<th>날짜</th>
+			</tr>
+		
+                 {{#list}} 
+                 <tr> 
+                     <td>{{no}}</td> 
+                     <td>{{title}} </td> 
+                     <td>{{writer}}</td> 
+                     <td>{{regDate}}</td> 
+                 </tr> 
+                 {{/list}} 
+		</table>
+     </script>
+		
+		<button type="button">삭제</button>
+		<button type="button">수정</button>
+		<button type="button">목록</button>
+		
+	 
+	 
+	 <div id="footter"></div>
+ 
+ 
+ 
+ 
+ 
+ <script type="text/javascript">
+ 
+ // url파람 가져오기
+ function getparam(paramName){
+	 var url = window.location.search.substring(1); //url에서 처음부터 '?'까지 삭제
+	 console.log(url)
+	var urlArray = url.split('&');
+	 
+	 for(var i = 0 ; urlArray.length; i++){
+		 var keyVal = urlArray[i].split('='); // '=' 을 기준으로 분리하기
+	 console.log(keyVal[0])
+	 console.log(keyVal[1])
+		 
+		 if( keyVal[0] == paramName){  
+			 // keyVal[0] : 파라미터 명
+			 // keyVal[1] : 파라미터 값
+			 return keyVal[1];
+		 }
+	 }
+ }
+ //정보 뿌리기
+ $.ajax({
+	url:"/themat/qna/dtail.do",
+	data:{bno : getparam('bno')},
+	dataType:'json'
+	 
+ }).done(function(result){
+	 var source = $("#entry-template").html(); 
+
+		var template = Handlebars.compile(source); 	
+		var html = template(result);
+		
+		$('#ditail').append(html);
+ })
+ 
+ 
+ $("button:eq(0)").click(function(){
+	 $.ajax({
+		url:
+		 
+	 })
+	 
+	 location.href="/themat/qna/listForm.do";
+ })
+ 
+ $("button:eq(2)").click(function(){
+	 location.href="/themat/qna/listForm.do";
+ })
+ 
+ 
+ </script>
+ 
+ 
+</body>
+</html>

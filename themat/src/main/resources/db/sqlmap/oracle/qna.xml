@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.mlec.mapper.QnaMapper">
+
+	<resultMap id="qnaMap" type="QnaVO">
+	    <result column="no" property="no" />
+	    <result column="title" property="title" />
+	    <result column="writer" property="writer" />
+	    <result column="content" property="content" />
+	    <result column="reg_date" property="regDate" />
+	</resultMap>
+	
+	
+	<select id="selectBoard" resultMap="qnaMap">
+	    select * 
+		  from qna_board  
+		 order by no desc
+	</select>
+
+
+
+
+	<select id="selectBoardByNo" parameterType="int" resultMap="qnaMap">
+	    select *         
+		  from qna_board  
+		 where no = #{no}
+	</select>
+	
+	
+	<!-- 
+	<resultMap id="boardFileMap" type="boardFileVO" >
+		<result property="fileNo" column="file_no"/>
+		<result property="no" column="no"/>
+		<result property="oriName" column="ori_name"/>
+		<result property="systemName" column="system_name"/>
+		<result property="filePath" column="file_path"/>
+		<result property="fileSize" column="file_size"/>
+	</resultMap>
+	
+	<select id="selectBoardFileByNo" parameterType="int" resultMap="boardFileMap">
+	    select file_no,
+	           no,
+	           ori_name,
+	           system_name,
+	           file_path,
+	           file_size
+	      from tb_board_file
+	     where no = #{no}      
+	</select>  
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+	
+</mapper>
+
