@@ -5,36 +5,120 @@
 <title>리뷰 게시판</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
 <script src="/themat/lib/js/jquery.min.js"></script>
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic|Merriweather:300,400italic,300italic,400,700italic' rel='stylesheet' type='text/css'>
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="/themat/lib/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="/themat/lib/css/icomoon.css">
+	<!-- Simple Line Icons -->
+	<link rel="stylesheet" href="/themat/lib/css/simple-line-icons.css">
+	<!-- Datetimepicker -->
+	<link rel="stylesheet" href="/themat/lib/css/bootstrap-datetimepicker.min.css">
+	<!-- Flexslider -->
+	<link rel="stylesheet" href="/themat/lib/css/flexslider.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="/themat/lib/css/bootstrap.css">
+
+	<link rel="stylesheet" href="/themat/lib/css/style.css">
+	
+	<script src="/themat/lib/js/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
+
+<div id="fh5co-container">
+
+	<div class="flexslider">
+		<div class="fh5co-overlay"></div>
+	</div>
+		
 	<div class="js-sticky">
 		<div class="fh5co-main-nav">
 			<div class="container-fluid">
 				<div class="fh5co-menu-1">
-					<a href="index.html" data-nav-section="events">home</a>
+					<a href="../../index.html" data-nav-section="events">home</a>
 					<a href="#" data-nav-section="features">Gallery</a>
 				</div>
 				<div class="fh5co-logo">
-					<a href="index.html">Themat</a>
+					<a href="../../index.html">Themat</a>
 				</div>
 				<div class="fh5co-menu-2">
 					<a href="#" data-nav-section="menu">Review</a>
 					<a href="#" data-nav-section="reservation">Q&A</a>
 				</div>
 			</div>
-			
 		</div>
 	</div>
 		
 		
+	<div id="fh5co-menus" data-section="menu">
+	
+	<div id="fh5co-type" style="background-image: url(/themat/lib/images/slide_3.jpg);" data-stellar-background-ratio="0.5">
+		<div class="fh5co-overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 to-animate">
+					<div class="fh5co-type">
+						<h3 class="with-icon icon-1">Fruits</h3>
+<!-- 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
+					</div>
+				</div>
+				<div class="col-md-3 to-animate">
+					<div class="fh5co-type">
+						<h3 class="with-icon icon-2">Sea food</h3>
+<!-- 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
+					</div>
+				</div>
+				<div class="col-md-3 to-animate">
+					<div class="fh5co-type">
+						<h3 class="with-icon icon-3">Vegetables</h3>
+<!-- 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
+					</div>
+				</div>
+				<div class="col-md-3 to-animate">
+					<div class="fh5co-type">
+						<h3 class="with-icon icon-4">Meat</h3>
+<!-- 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
 		
-	<div>
+	<div class="container">
 		<div id="list">
 		</div>
 		
 		<div></div>
 	</div>
 	
+	</div>
+</div>
+	
+<div id="fh5co-footer">
+	<div class="container">
+		<div class="row row-padded">
+			<div class="col-md-12 text-center">
+				<p class="to-animate">&copy; 2016 Foodee Free HTML5 Template. <br> Designed by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> Demo /themat/lib/images: <a href="http://pexels.com/" target="_blank">Pexels</a> <br> Tasty Icons Free <a href="http://handdrawngoods.com/store/tasty-icons-free-food-icons/" target="_blank">handdrawngoods</a>
+				</p>
+				<p class="text-center to-animate"><a href="#" class="js-gotop">Go To Top</a></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<ul class="fh5co-social">
+					<li class="to-animate-2"><a href="#"><i class="icon-facebook"></i></a></li>
+					<li class="to-animate-2"><a href="#"><i class="icon-twitter"></i></a></li>
+					<li class="to-animate-2"><a href="#"><i class="icon-instagram"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
 <script id="review-store" type="text/x-handlebars-template"> 
 	<table>
 		<thead>
@@ -54,7 +138,6 @@
         {{/list}} 
 		</tbody>
 	</table>
-		<button id='test' type='button'>리뷰리스트</button>
 </script>
 <script id="entry-template" type="text/x-handlebars-template"> 
 	<table>
@@ -162,5 +245,28 @@
 	
 	listStore();
 </script>
+	<!-- jQuery -->
+	<script src="/themat/lib/js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="/themat/lib/js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="/themat/lib/js/bootstrap.min.js"></script>
+	<!-- Bootstrap DateTimePicker -->
+	<script src="/themat/lib/js/moment.js"></script>
+	<script src="/themat/lib/js/bootstrap-datetimepicker.min.js"></script>
+	<!-- Waypoints -->
+	<script src="/themat/lib/js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="/themat/lib/js/jquery.stellar.min.js"></script>
+
+	<!-- Flexslider -->
+	<script src="/themat/lib/js/jquery.flexslider-min.js"></script>
+	<script>
+		$(function () {
+	       $('#date').datetimepicker();
+	   });
+	</script>
+	<!-- Main JS -->
+	<script src="/themat/lib/js/main.js"></script>
 </body>
 </html>

@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -85,21 +83,21 @@
 		<div class="fh5co-main-nav">
 			<div class="container-fluid">
 				<div class="fh5co-menu-1">
-					<a href="index.html" data-nav-section="events">home</a>
-					<a href="#" data-nav-section="features">Gallery</a>
+					<a href="#" data-nav-section="home">home</a>
+					<a href="#" data-nav-section="gallery">Gallery</a>
 				</div>
 				<div class="fh5co-logo">
 					<a href="index.html">Themat</a>
 				</div>
 				<div class="fh5co-menu-2">
-					<a href="#" data-nav-section="menu">Review</a>
+					<a href="#" data-nav-section="review">Review</a>
 					<a href="#" data-nav-section="reservation">Q&A</a>
 				</div>
 			</div>
 		</div>
 		</div>
 
-		<div id="fh5co-featured" data-section="features">
+		<div id="fh5co-featured" data-section="gallery">
 			<div class="container">
 				<div class="row text-center fh5co-heading row-padded">
 					<div class="col-md-8 col-md-offset-2">
@@ -165,43 +163,16 @@
 
 					</div>
 				</div>
-
+				<div class="row">
+					<div class="col-md-4 col-md-offset-4 text-center to-animate-2">
+						<p><a href="/themat/view/photo/main.do" class="btn btn-primary btn-outline">More Food Ficture</a></p>
+					</div>
+				</div>
 			</div>
 		</div>
 
-<!-- 		<div id="fh5co-type" style="background-image: url(/themat/lib/images/slide_3.jpg);" data-stellar-background-ratio="0.5"> -->
-<!-- 			<div class="fh5co-overlay"></div> -->
-<!-- 			<div class="container"> -->
-<!-- 				<div class="row"> -->
-<!-- 					<div class="col-md-3 to-animate"> -->
-<!-- 						<div class="fh5co-type"> -->
-<!-- 							<h3 class="with-icon icon-1">Fruits</h3> -->
-<!-- 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 					<div class="col-md-3 to-animate"> -->
-<!-- 						<div class="fh5co-type"> -->
-<!-- 							<h3 class="with-icon icon-2">Sea food</h3> -->
-<!-- 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 					<div class="col-md-3 to-animate"> -->
-<!-- 						<div class="fh5co-type"> -->
-<!-- 							<h3 class="with-icon icon-3">Vegetables</h3> -->
-<!-- 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 					<div class="col-md-3 to-animate"> -->
-<!-- 						<div class="fh5co-type"> -->
-<!-- 							<h3 class="with-icon icon-4">Meat</h3> -->
-<!-- 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
 
-		<div id="fh5co-menus" data-section="menu">
+		<div id="fh5co-menus" data-section="review">
 			<div class="container">
 				<div class="row text-center fh5co-heading row-padded">
 					<div class="col-md-8 col-md-offset-2">
@@ -465,7 +436,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4 text-center to-animate-2">
-						<p><a href="#" class="btn btn-primary btn-outline">More Food Menu</a></p>
+						<p><a href="/themat/view/review/reviewMain.html" class="btn btn-primary btn-outline">More Food Menu</a></p>
 					</div>
 				</div>
 			</div>
@@ -506,6 +477,11 @@
 						</div>
 					</div>
 				</div>
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4 text-center to-animate-2">
+					<p><a href="/themat/view/qna/listForm.html" class="btn btn-primary btn-outline">More QnA</a></p>
+				</div>
+			</div>
 			</div>
 		</div>
 
