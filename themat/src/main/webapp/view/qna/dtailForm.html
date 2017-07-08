@@ -3,39 +3,98 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
- 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+<script src="/themat/lib/js/jquery.min.js"></script>
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic|Merriweather:300,400italic,300italic,400,700italic' rel='stylesheet' type='text/css'>
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="/themat/lib/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="/themat/lib/css/icomoon.css">
+	<!-- Simple Line Icons -->
+	<link rel="stylesheet" href="/themat/lib/css/simple-line-icons.css">
+	<!-- Datetimepicker -->
+	<link rel="stylesheet" href="/themat/lib/css/bootstrap-datetimepicker.min.css">
+	<!-- Flexslider -->
+	<link rel="stylesheet" href="/themat/lib/css/flexslider.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="/themat/lib/css/bootstrap.css">
+
+	<link rel="stylesheet" href="/themat/lib/css/style.css">
+	
+	<script src="/themat/lib/js/modernizr-2.6.2.min.js"></script>
 
 </head>
 <body>
+ <div id="fh5co-container">
+
+	<div class="flexslider">
+		<div class="fh5co-overlay"></div>
+	</div>
+		
+	<div class="js-sticky">
+		<div class="fh5co-main-nav">
+			<div class="container-fluid">
+				<div class="fh5co-menu-1">
+					<a href="../../index.html" data-nav-section="home">home</a>
+					<a href="#" data-nav-section="gallery">Gallery</a>
+				</div>
+				<div class="fh5co-logo">
+					<a href="../../index.html">Themat</a>
+				</div>
+				<div class="fh5co-menu-2">
+					<a href="#" data-nav-section="review">Review</a>
+					<a href="#" data-nav-section="reservation">Q&A</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	 <div id="fh5co-menus" data-section="reservation">
+	 
+	 <div >
+		<!--   여기서 부터 시작  -->
+		<div id="ditail" class="container"></div>
+	
+	</div> 
+	 
+	
+	</div>	
+	
+</div>
  
- <div id="top"></div>
-		
-		
-	<div id="ditail"></div>
+ 
+
+	<!-- 디테일 핸들바 -->	
 	<script id="entry-template" type="text/x-handlebars-template">
-		<table>
-			<tr>
-				<th>번호</th>
-				<th>제목</th>
-				<th>글쓴이</th>
-				<th>날짜</th>
-			</tr>
-		
+	<div class="container">
                  {{#list}} 
-                 <tr> 
-                     <td>{{no}}</td> 
-                     <td>{{title}} </td> 
-                     <td>{{writer}}</td> 
-                     <td>{{regDate}}</td> 
-                 </tr> 
+				<span>번호</span><span>{{no}}</span><span>날짜</span><span>{{regDate}}</span><br/>
+                <span>제목</span><span>{{title}} </span> <br/>
+				<span>글쓴이</span><span>{{writer}}</span> <br/>
+				<span>내용</span><span>{{content}}</span> 
                  {{/list}} 
-		</table>
+		</div>
      </script>
+
+	<!-- 수정폼 핸들바 -->	
+	<script id="update-template" type="text/x-handlebars-template">
+	<form action='update.do' method='post' >
+			{{#list}}
+	  제목 : 		<input type='text' name='title' value='{{title}}' /><br>
+	  글쓴이 : 		<input type='text' name='writer' value='{{writer}}' /><br>
+	  내용 : <br>
+	 			<textarea name='content' rows='5' cols='70'>{{content}}</textarea><br>
+				<input type='submit' value='등록' />
+			{{/list}} 
+		</form>
+	<a href='listForm.do'>목록</a>
+     </script>
+
 		
 		<button type="button">삭제</button>
 		<button type="button">수정</button>
@@ -43,10 +102,29 @@
 		
 	 
 	 
-	 <div id="footter"></div>
  
  
  
+ <div id="fh5co-footer">
+	<div class="container">
+		<div class="row row-padded">
+			<div class="col-md-12 text-center">
+				<p class="to-animate">&copy; 2016 Foodee Free HTML5 Template. <br> Designed by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> Demo /themat/lib/images: <a href="http://pexels.com/" target="_blank">Pexels</a> <br> Tasty Icons Free <a href="http://handdrawngoods.com/store/tasty-icons-free-food-icons/" target="_blank">handdrawngoods</a>
+				</p>
+				<p class="text-center to-animate"><a href="#" class="js-gotop">Go To Top</a></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<ul class="fh5co-social">
+					<li class="to-animate-2"><a href="#"><i class="icon-facebook"></i></a></li>
+					<li class="to-animate-2"><a href="#"><i class="icon-twitter"></i></a></li>
+					<li class="to-animate-2"><a href="#"><i class="icon-instagram"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
  
  
  <script type="text/javascript">
@@ -56,12 +134,10 @@
 	 var url = window.location.search.substring(1); //url에서 처음부터 '?'까지 삭제
 	 console.log(url)
 	var urlArray = url.split('&');
-	 
 	 for(var i = 0 ; urlArray.length; i++){
 		 var keyVal = urlArray[i].split('='); // '=' 을 기준으로 분리하기
 	 console.log(keyVal[0])
 	 console.log(keyVal[1])
-		 
 		 if( keyVal[0] == paramName){  
 			 // keyVal[0] : 파라미터 명
 			 // keyVal[1] : 파라미터 값
@@ -74,33 +150,71 @@
 	url:"/themat/qna/dtail.do",
 	data:{bno : getparam('bno')},
 	dataType:'json'
-	 
  }).done(function(result){
 	 var source = $("#entry-template").html(); 
-
 		var template = Handlebars.compile(source); 	
 		var html = template(result);
-		
 		$('#ditail').append(html);
  })
  
- 
- $("button:eq(0)").click(function(){
-	 $.ajax({
-		url:
-		 
-	 })
-	 
-	 location.href="/themat/qna/listForm.do";
- })
- 
+ //목록으로 가기
  $("button:eq(2)").click(function(){
 	 location.href="/themat/qna/listForm.do";
  })
  
+ //삭제
+  $("button:eq(0)").click(function(){
+	  $.ajax({
+			url:"/themat/qna/dtail.do",
+			data:{bno : getparam('bno')},
+			dataType:'json'
+		 }).done(function(result){
+			 var source = $("#entry-template").html(); 
+				var template = Handlebars.compile(source); 	
+				var html = template(result);
+				$('#ditail').append(html);
+		 })
+ })
+ 
+ //수정
+  $("button:eq(1)").click(function(){
+	  $.ajax({
+			url:"/themat/qna/dtail.do",
+			data:{bno : getparam('bno')},
+			dataType:'json'
+		 }).done(function(result){
+			var source = $("#update-template").html(); 
+			var template = Handlebars.compile(source); 
+			var html = template(result);
+			$('#ditail').html(html);
+	})
+ })
+ 
  
  </script>
- 
+ <!-- jQuery -->
+	<script src="/themat/lib/js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="/themat/lib/js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="/themat/lib/js/bootstrap.min.js"></script>
+	<!-- Bootstrap DateTimePicker -->
+	<script src="/themat/lib/js/moment.js"></script>
+	<script src="/themat/lib/js/bootstrap-datetimepicker.min.js"></script>
+	<!-- Waypoints -->
+	<script src="/themat/lib/js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="/themat/lib/js/jquery.stellar.min.js"></script>
+
+	<!-- Flexslider -->
+	<script src="/themat/lib/js/jquery.flexslider-min.js"></script>
+	<script>
+		$(function () {
+	       $('#date').datetimepicker();
+	   });
+	</script>
+	<!-- Main JS -->
+	<script src="/themat/lib/js/main.js"></script>	
  
 </body>
 </html>

@@ -22,7 +22,16 @@ public class QnaServicelmpl implements QnaService{
 	@Override
 	public QnaVO detail(int bno) throws Exception {
 		return mapper.selectBoardByNo(bno);
-		
+	}
+
+	@Override
+	public void delete(int bno) throws Exception {
+		 mapper.delete(bno);
+	}
+
+	@Override
+	public void write(QnaVO qnavo) throws Exception {
+		mapper.write(qnavo);
 	}
 
 }

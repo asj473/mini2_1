@@ -11,21 +11,32 @@
 	    <result column="reg_date" property="regDate" />
 	</resultMap>
 	
-	
+	<!-- 리스트 -->
 	<select id="selectBoard" resultMap="qnaMap">
 	    select * 
 		  from qna_board  
 		 order by no desc
 	</select>
 
-
-
-
+	<!-- 디테일 -->
 	<select id="selectBoardByNo" parameterType="int" resultMap="qnaMap">
 	    select *         
 		  from qna_board  
 		 where no = #{no}
 	</select>
+	
+	<!-- 삭제 -->
+	<delete id="delete" parameterType="int" >
+		delete from qna_board 
+		where no = #{no}
+	</delete>
+	
+	<!-- 글쓰기 -->
+	<insert id="write" parameterType="QnaVO">
+		insert into qna_board(title, writer, content, reg_date)
+		values(#{title},#{writer},#{content},now())
+	
+	</insert>
 	
 	
 	<!-- 

@@ -8,4 +8,6 @@ public interface QnaService {
 	
 	public List<QnaVO> list()throws Exception;
 	public QnaVO detail(int bno) throws Exception; 
+	public void delete(int bno) throws Exception;
+	public void write(QnaVO qnavo) throws Exception;
 }
