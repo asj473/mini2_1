@@ -5,12 +5,12 @@ public class PageVO {
 
 	// 한페이지에 보여지는 첫번째 값과
 	public int getBegin() {
-		return (pageNo -1) * 10 + 1;
+		return (pageNo -1) * 9;
 	}
 	
 	// 마지막값 
 	public int getEnd() {
-		return pageNo * 10;
+		return pageNo * 9;
 	}
 	
 	// -> list조회해서 쭉 나열하면 페이지마다 짜르기 위해
