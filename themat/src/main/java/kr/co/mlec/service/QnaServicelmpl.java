@@ -34,4 +34,10 @@ public class QnaServicelmpl implements QnaService{
 		mapper.write(qnavo);
 	}
 
+	@Override
+	public void update(QnaVO qnavo) throws Exception {
+		mapper.update(qnavo);
+		
+	}
+
 }

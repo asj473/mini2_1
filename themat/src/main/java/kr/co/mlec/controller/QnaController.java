@@ -39,7 +39,6 @@ public class QnaController {
 	public Map<String, Object> dtail(int bno) throws Exception{
 		Map<String, Object> map = new HashMap<>();
 		map.put("list", qnaService.detail(bno));
-		System.out.println("1 "+qnaService.detail(bno) );
 		return map;
 	}
 	
@@ -58,6 +57,15 @@ public class QnaController {
 		qnaService.write(qnavo);
 		return "redirect:/qna/listForm.do";
 	}
+	//수정하기 
+	@RequestMapping("/update.do")
+	public String update(QnaVO qnavo) throws Exception{
+		System.out.println("업데이트 컨트롤 들어옴");
+		System.out.println(qnavo.getContent());
+		qnaService.update(qnavo);
+		return "redirect:/qna/listForm.do";
+	}
+	
 	
 	
 }

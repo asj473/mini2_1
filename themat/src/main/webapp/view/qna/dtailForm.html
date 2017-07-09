@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
 <script src="/themat/lib/js/jquery.min.js"></script>
+<script src="//cdn.ckeditor.com/4.7.1/basic/ckeditor.js"></script>
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
@@ -57,7 +58,7 @@
 	 <div id="fh5co-menus" data-section="reservation">
 	 
 	 <div >
-		<!--   ¿©±â¼­ ºÎÅÍ ½ÃÀÛ  -->
+		<!--   ì—¬ê¸°ì„œ ë¶€í„° ì‹œì‘  -->
 		<div id="ditail" class="container"></div>
 	
 	</div> 
@@ -69,36 +70,37 @@
  
  
 
-	<!-- µğÅ×ÀÏ ÇÚµé¹Ù -->	
+	<!-- ë””í…Œì¼ í•¸ë“¤ë°” -->	
 	<script id="entry-template" type="text/x-handlebars-template">
 	<div class="container">
                  {{#list}} 
-				<span>¹øÈ£</span><span>{{no}}</span><span>³¯Â¥</span><span>{{regDate}}</span><br/>
-                <span>Á¦¸ñ</span><span>{{title}} </span> <br/>
-				<span>±Û¾´ÀÌ</span><span>{{writer}}</span> <br/>
-				<span>³»¿ë</span><span>{{content}}</span> 
+				<span>ë²ˆí˜¸</span><span>{{no}}</span><span>ë‚ ì§œ</span><span>{{regDate}}</span><br/>
+                <span>ì œëª©</span><span>{{title}} </span> <br/>
+				<span>ê¸€ì“´ì´</span><span>{{writer}}</span> <br/>
+				<span>ë‚´ìš©</span><span>{{content}}</span> 
                  {{/list}} 
 		</div>
      </script>
 
-	<!-- ¼öÁ¤Æû ÇÚµé¹Ù -->	
+	<!-- ìˆ˜ì •í¼ í•¸ë“¤ë°” -->	
 	<script id="update-template" type="text/x-handlebars-template">
 	<form action='update.do' method='post' >
 			{{#list}}
-	  Á¦¸ñ : 		<input type='text' name='title' value='{{title}}' /><br>
-	  ±Û¾´ÀÌ : 		<input type='text' name='writer' value='{{writer}}' /><br>
-	  ³»¿ë : <br>
-	 			<textarea name='content' rows='5' cols='70'>{{content}}</textarea><br>
-				<input type='submit' value='µî·Ï' />
+	  		<input type='hidden' name='no' value='{{no}}' />
+	  ì œëª© : 		<input type='text' name='title' value='{{title}}' /><br>
+	  ê¸€ì“´ì´ : 		<input type='text' name='writer' value='{{writer}}' /><br>
+	  ë‚´ìš© : <br>
+	 			<textarea id='ckk' name='content' rows='5' cols='70'>{{content}}</textarea><br>
+				<input type='submit' value='ë“±ë¡' />
 			{{/list}} 
 		</form>
-	<a href='listForm.do'>¸ñ·Ï</a>
+	<a href='listForm.do'>ëª©ë¡</a>
      </script>
-
+	
 		
-		<button type="button">»èÁ¦</button>
-		<button type="button">¼öÁ¤</button>
-		<button type="button">¸ñ·Ï</button>
+		<button type="button">ì‚­ì œ</button>
+		<button type="button">ìˆ˜ì •</button>
+		<button type="button">ëª©ë¡</button>
 		
 	 
 	 
@@ -129,23 +131,20 @@
  
  <script type="text/javascript">
  
- // urlÆÄ¶÷ °¡Á®¿À±â
+ // urlíŒŒëŒ ê°€ì ¸ì˜¤ê¸°
  function getparam(paramName){
-	 var url = window.location.search.substring(1); //url¿¡¼­ Ã³À½ºÎÅÍ '?'±îÁö »èÁ¦
-	 console.log(url)
+	 var url = window.location.search.substring(1); //urlì—ì„œ ì²˜ìŒë¶€í„° '?'ê¹Œì§€ ì‚­ì œ
 	var urlArray = url.split('&');
 	 for(var i = 0 ; urlArray.length; i++){
-		 var keyVal = urlArray[i].split('='); // '=' À» ±âÁØÀ¸·Î ºĞ¸®ÇÏ±â
-	 console.log(keyVal[0])
-	 console.log(keyVal[1])
+		 var keyVal = urlArray[i].split('='); // '=' ì„ ê¸°ì¤€ìœ¼ë¡œ ë¶„ë¦¬í•˜ê¸°
 		 if( keyVal[0] == paramName){  
-			 // keyVal[0] : ÆÄ¶ó¹ÌÅÍ ¸í
-			 // keyVal[1] : ÆÄ¶ó¹ÌÅÍ °ª
+			 // keyVal[0] : íŒŒë¼ë¯¸í„° ëª…
+			 // keyVal[1] : íŒŒë¼ë¯¸í„° ê°’
 			 return keyVal[1];
 		 }
 	 }
  }
- //Á¤º¸ »Ñ¸®±â
+ //ì •ë³´ ë¿Œë¦¬ê¸°
  $.ajax({
 	url:"/themat/qna/dtail.do",
 	data:{bno : getparam('bno')},
@@ -154,29 +153,25 @@
 	 var source = $("#entry-template").html(); 
 		var template = Handlebars.compile(source); 	
 		var html = template(result);
-		$('#ditail').append(html);
+		$('#ditail').html(html);
  })
  
- //¸ñ·ÏÀ¸·Î °¡±â
+ //ëª©ë¡ìœ¼ë¡œ ê°€ê¸°
  $("button:eq(2)").click(function(){
 	 location.href="/themat/qna/listForm.do";
  })
  
- //»èÁ¦
+ //ì‚­ì œ
   $("button:eq(0)").click(function(){
 	  $.ajax({
-			url:"/themat/qna/dtail.do",
+			url:"/themat/qna/delete.do",
 			data:{bno : getparam('bno')},
-			dataType:'json'
-		 }).done(function(result){
-			 var source = $("#entry-template").html(); 
-				var template = Handlebars.compile(source); 	
-				var html = template(result);
-				$('#ditail').append(html);
+		 }).done(function(){
+			 location.href="/themat/qna/listForm.do";
 		 })
  })
  
- //¼öÁ¤
+ //ìˆ˜ì •
   $("button:eq(1)").click(function(){
 	  $.ajax({
 			url:"/themat/qna/dtail.do",
@@ -187,6 +182,10 @@
 			var template = Handlebars.compile(source); 
 			var html = template(result);
 			$('#ditail').html(html);
+			
+			 //ckì—ë””í„°
+		  CKEDITOR.replace("ckk");
+		  
 	})
  })
  

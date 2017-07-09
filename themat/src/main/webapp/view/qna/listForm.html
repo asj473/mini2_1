@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>¸®ºä °Ô½ÃÆÇ</title>
+<meta charset="utf-8">
+<title>ë¦¬ë·° ê²Œì‹œíŒ</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
 <script src="/themat/lib/js/jquery.min.js"></script>
 
@@ -12,8 +13,8 @@
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="/themat/lib/css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="/themat/lib/css/icomoon.css">
+	<!-- Icomoon Icon Fonts  -->
+<!-- 	<link rel="stylesheet" href="/themat/lib/css/icomoon.css"> -->
 	<!-- Simple Line Icons -->
 	<link rel="stylesheet" href="/themat/lib/css/simple-line-icons.css">
 	<!-- Datetimepicker -->
@@ -56,7 +57,7 @@
 	 <div id="fh5co-menus" data-section="reservation">
 	 
 	 
-	<!--   ¿©±â¼­ ºÎÅÍ ½ÃÀÛ  -->
+	<!--   ì—¬ê¸°ì„œ ë¶€í„° ì‹œì‘  -->
 	<div id="tlist" class="container" > </div>
 	
 	
@@ -89,14 +90,14 @@
 	</div>
 </div>
 
-	<!-- ¸®½ºÆ® »Ñ¸®´Â ÇÚµé·¯ -->
+	<!-- ë¦¬ìŠ¤íŠ¸ ë¿Œë¦¬ëŠ” í•¸ë“¤ëŸ¬ -->
 	<script id="entry-template" type="text/x-handlebars-template">
 		<table class="container" >
 				<tr >
-				    <th>¹øÈ£</th>
-				    <th>Á¦¸ñ</th>
-				    <th>±Û¾´ÀÌ</th>
-				    <th>³¯Â¥</th>
+				    <th>ë²ˆí˜¸</th>
+				    <th>ì œëª©</th>
+				    <th>ê¸€ì“´ì´</th>
+				    <th>ë‚ ì§œ</th>
 				</tr>
                  {{#list}} 
                  <tr > 
@@ -107,19 +108,19 @@
                  </tr> 
                  {{/list}} 
 		</table>
-	<button> ±Û¾²±â </button>
+	<button> ê¸€ì“°ê¸° </button>
      </script>
 		
-		<!-- ±Û¾²±â »Ñ¸®´Â ÇÚµé·¯ -->
+		<!-- ê¸€ì“°ê¸° ë¿Œë¦¬ëŠ” í•¸ë“¤ëŸ¬ -->
 	<script id="write-template" type="text/x-handlebars-template">
 		<form action='write.do' method='post' >
-	  Á¦¸ñ : 	<input type='text' name='title' /><br>
-	  ±Û¾´ÀÌ : <input type='text' name='writer' /><br>
-	  ³»¿ë : <br>
+	  ì œëª© : 	<input type='text' name='title' /><br>
+	  ê¸€ì“´ì´ : <input type='text' name='writer' /><br>
+	  ë‚´ìš© : <br>
 	 		<textarea name='content' rows='5' cols='70'></textarea><br>
-			<input type='submit' value='µî·Ï' />
+			<input type='submit' value='ë“±ë¡' />
 		</form>
-	<a href='listForm.do'>¸ñ·Ï</a>
+	<a href='listForm.do'>ëª©ë¡</a>
      </script>
 		
 	 
@@ -127,7 +128,7 @@
 	 
 	 
 <script type="text/javascript">
-	//¸®½ºÆ® »Ñ¸®´Â ajax
+	//ë¦¬ìŠ¤íŠ¸ ë¿Œë¦¬ëŠ” ajax
 	$.ajax({
 		url:"/themat/qna/list.do",	
 		dataType:"json"
@@ -138,12 +139,11 @@
 		$('#tlist').html(html);
 	});
 	
-	//±Û¾²±âÆû ÇÚµé·¯ »Ñ¸®±â
+	//ê¸€ì“°ê¸°í¼ í•¸ë“¤ëŸ¬ ë¿Œë¦¬ê¸°
 	$("#tlist").on("click", "button", function(){
 		var source = $("#write-template").html(); 
 		var template = Handlebars.compile(source); 	
 		$('#tlist').html(template);
-		
 	})
 	
 	

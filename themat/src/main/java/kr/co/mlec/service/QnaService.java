@@ -10,4 +10,5 @@ public interface QnaService {
 	public QnaVO detail(int bno) throws Exception; 
 	public void delete(int bno) throws Exception;
 	public void write(QnaVO qnavo) throws Exception;
+	public void update(QnaVO qnavo) throws Exception;
 }

@@ -10,6 +10,7 @@ public interface QnaMapper {
 	public QnaVO selectBoardByNo(int no) throws Exception;
 	public void delete(int no) throws Exception;
 	public void write(QnaVO qnavo) throws Exception;
+	public void update(QnaVO qnavo) throws Exception;
 	
 	
 }

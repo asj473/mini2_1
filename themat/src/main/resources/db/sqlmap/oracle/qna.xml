@@ -38,6 +38,15 @@
 	
 	</insert>
 	
+	<!-- 수정하기 -->
+	<update id="update" parameterType="QnaVO">
+		update qna_board
+		set title = #{title},
+		 writer = #{writer},
+		 content = #{content}
+		 where no = #{no}
+	
+	</update>
 	
 	<!-- 
 	<resultMap id="boardFileMap" type="boardFileVO" >
