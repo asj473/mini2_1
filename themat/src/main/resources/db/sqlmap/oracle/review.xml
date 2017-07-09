@@ -30,14 +30,28 @@
 		<result column="address" property="address"/>
 		<result column="call" property="call"/>
 		<result column="rating" property="rating"/>
+		<result column="img" property="img"/>
 	</resultMap>
 	
-	<select id="listStore" resultMap="storeMap">
-		select *
-		  from store
-		 
-	</select>
-	
+	<select id="listStore" parameterType="PageVO" resultMap="storeMap">
+<!--     	select * -->
+<!--     	  from (  -->
+<!--     	  		 select rownum as rnum, a.* -->
+<!--     	           from (select *   -->
+<!--     	                   from store  -->
+<!--     	                  order by no desc  -->
+<!--     	                ) as a  -->
+<!--     	       )  as t -->
+<!--     	 where rnum between #{begin} and #{end} -->
+		select * from store limit #{begin}, #{end}
+    </select> 
+
+    <select id="storeCount" parameterType="PageVO" resultType="int">
+    	select count(*)
+          from store
+    </select> 
+    
+    
 	<select id="detailStore" parameterType="int" resultMap="storeMap">
 		select *
 	      from store

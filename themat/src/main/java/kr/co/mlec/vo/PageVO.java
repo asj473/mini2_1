@@ -10,7 +10,7 @@ public class PageVO {
 	
 	// 마지막값 
 	public int getEnd() {
-		return pageNo * 9;
+		return 9;
 	}
 	
 	// -> list조회해서 쭉 나열하면 페이지마다 짜르기 위해

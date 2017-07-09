@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.mlec.service.ReviewService;
+import kr.co.mlec.vo.PageResultVO;
+import kr.co.mlec.vo.PageVO;
 import kr.co.mlec.vo.ReviewVO;
 import kr.co.mlec.vo.StoreVO;
 
@@ -22,11 +24,13 @@ public class ReviewController {
 	
 	@RequestMapping("/listStore.do")
 	@ResponseBody
-	public Map<String, List<StoreVO>> listStore() throws Exception{
-		List<StoreVO> list = reviewService.listStroe();
+	public Map<String, Object> listStore(PageVO page) throws Exception{
+		List<StoreVO> list = reviewService.listStore(page);
+		int count = reviewService.storeCount(page);
 		
-		Map<String, List<StoreVO>> map = new HashMap<>();
+		Map<String, Object> map = new HashMap<>();
 		map.put("list", list);
+		map.put("pageResult", new PageResultVO(page.getPageNo(), count));
 		
 		return map;
 	}

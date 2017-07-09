@@ -6,6 +6,14 @@ public class StoreVO {
 	private String name;
 	private String address;
 	private String call;
+	private String img;
+	
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	private int rating;
 	public int getNo() {
 		return no;

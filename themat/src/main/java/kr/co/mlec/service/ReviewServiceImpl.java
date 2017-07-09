@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.mlec.mapper.ReviewMapper;
+import kr.co.mlec.vo.PageVO;
 import kr.co.mlec.vo.ReviewVO;
 import kr.co.mlec.vo.StoreVO;
 
@@ -44,17 +45,24 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
-	public List<StoreVO> listStroe() throws Exception {
-		List<StoreVO> list = reviewMapper.listStore();
+	public StoreVO detailStore(int no) throws Exception {
+//		StoreVO store = reviewMapper.detailStore(no);
 		
-		return list;
+		return reviewMapper.detailStore(no);
 	}
 
 	@Override
-	public StoreVO detailStore(int no) throws Exception {
-		StoreVO store = reviewMapper.detailStore(no);
+	public List<StoreVO> listStore(PageVO page) throws Exception {
+//		List<StoreVO> list = reviewMapper.listStore(page);
 		
-		return store;
+		return reviewMapper.listStore(page);
+	}
+
+	@Override
+	public int storeCount(PageVO page) throws Exception {
+//		int count = reviewMapper.storeCount(page);
+		
+		return reviewMapper.storeCount(page);
 	}
 
 }

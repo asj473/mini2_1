@@ -3,6 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <title>리뷰 게시판</title>
+<style>
+	@import url(https://fonts.googleapis.com/css?family=Raleway);
+body {
+  margin: 0px;
+}
+ nav { 
+ /*    margin-top: 40px; */ 
+   padding: 24px; 
+   text-align: center; 
+   font-family: Raleway; 
+   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); 
+ } 
+#nav-3 {
+  background: #EEA200;
+}
+.link-3 {
+  transition: 0.4s;
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 0 10px;
+  margin: 0 10px;
+}
+.link-3:hover {
+  background-color: #ffffff;
+  color: #EEA200;
+  padding: 24px 10px;
+}
+</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
 <script src="/themat/lib/js/jquery.min.js"></script>
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -29,7 +58,7 @@
 </head>
 <body>
 
-<div id="fh5co-container">
+<!-- <div id="fh5co-container"> -->
 
 	<div class="flexslider">
 		<div class="fh5co-overlay"></div>
@@ -39,7 +68,7 @@
 		<div class="fh5co-main-nav">
 			<div class="container-fluid">
 				<div class="fh5co-menu-1">
-					<a href="../../index.html" data-nav-section="events">home</a>
+					<a href="/themat/index.html" data-nav-section="events">home</a>
 					<a href="#" data-nav-section="features">Gallery</a>
 				</div>
 				<div class="fh5co-logo">
@@ -56,47 +85,35 @@
 		
 	<div id="fh5co-menus" data-section="menu">
 	
-	<div id="fh5co-type" style="background-image: url(/themat/lib/images/slide_3.jpg);" data-stellar-background-ratio="0.5">
-		<div class="fh5co-overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-3 to-animate">
-					<div class="fh5co-type">
-						<h3 class="with-icon icon-1">Fruits</h3>
-<!-- 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
-					</div>
-				</div>
-				<div class="col-md-3 to-animate">
-					<div class="fh5co-type">
-						<h3 class="with-icon icon-2">Sea food</h3>
-<!-- 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
-					</div>
-				</div>
-				<div class="col-md-3 to-animate">
-					<div class="fh5co-type">
-						<h3 class="with-icon icon-3">Vegetables</h3>
-<!-- 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
-					</div>
-				</div>
-				<div class="col-md-3 to-animate">
-					<div class="fh5co-type">
-						<h3 class="with-icon icon-4">Meat</h3>
-<!-- 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>	
-		
-	<div class="container">
+	<nav id="nav-3">
+  		<a class="link-3" href="#" data-nav-section="hom">한식</a>
+  		<a class="link-3" href="#">분식</a>
+ 		<a class="link-3" href="#">일식/돈까스</a>
+  		<a class="link-3" href="#">중식</a>
+  		<a class="link-3" href="#">족발/보쌈</a>
+	</nav>
+
+	
+	<div id="test"></div>
+	<div class="container block-center" data-section="hom">
 		<div id="list">
 		</div>
 		
-		<div></div>
+		<nav>
+			<ul class="pagination"></ul>
+		</nav>
 	</div>
 	
 	</div>
-</div>
+<!-- </div> -->
+	
+	
+	
+	
+	
+	
+	
+	
 	
 <div id="fh5co-footer">
 	<div class="container">
@@ -119,26 +136,29 @@
 	</div>
 </div>
 
-<script id="review-store" type="text/x-handlebars-template"> 
-	<table>
-		<thead>
-		<tr>
-			<th>가</th>		
-			<th>나</th>		
-			<th>다</th>		
-		</tr>
-		</thead>
-		<tbody>
-       	 {{#list}} 
-        <tr> 
-            <td>{{category}}</td> 
-            <td><a href='javascript:listReview({{no}})'>{{name}}</a></td> 
-            <td>{{rating}}</td> 
-        </tr> 
-        {{/list}} 
-		</tbody>
-	</table>
+<script id="review-store" type="text/x-handlebars-template">
+<div id="fh5co-events" data-section="events" style="background-image: url(/themat/lib/images/slide_2.jpg);" data-stellar-background-ratio="0.5">
+	<div class="fh5co-overlay"></div>
+	<div class="container">
+		<div class="row">
+				
+{{#list}} 
+					<div class="col-md-4">
+						<div class="fh5co-event">
+							<h3>{{name}}</h3>
+							<span class="fh5co-event-meta">{{rating}}</span>
+							<img src="{{img}}" class=".img-thumbnail" alt="Cinque Terre">
+							<img src="{{img}}" style="border:tomato;" width="200px" heigth="200px" />
+							<!--<p><a href="#" class="btn btn-primary btn-outline">Read More</a></p>--!>
+						</div>
+					</div>
+{{/list}} 
+
+		</div>
+	</div>
+</div>	
 </script>
+
 <script id="entry-template" type="text/x-handlebars-template"> 
 	<table>
 		<thead>
@@ -170,21 +190,76 @@
 
 
 <script>
-	function listStore(){
+	function listStore(pageNo){
+		if (pageNo === undefined) {
+			pageNo = 1;
+		}
 		$.ajax({
 			url : "/themat/review/listStore.do",
+			data: {pageNo : pageNo},
 			dataType : "json"
 		}).done(function(result){
-			console.dir(result);
+// 			console.dir(result);
 			var source = $("#review-store").html(); 
 			//핸들바 템플릿 컴파일
 			var template = Handlebars.compile(source); 
 			//핸들바 템플릿에 데이터를 바인딩해서 HTML 생성
 			var html = template(result);
 			//생성된 HTML을 DOM에 주입
-			$('#list').html(html);
+			//$('#list').html(html);
+			$('#test').html(html);
 			
+			console.dir(result.pageResult);
+			makePageLink(result.pageResult);
 		});
+	}
+	
+	function makePageLink(data) {
+		var html = "";
+		if (data.count != 0) {
+			var clz = "";
+			if (data.prev == false) {
+				clz = "disabled";
+			}
+			html += '<li class="' + clz + '">';
+			
+			var fn = "";
+			
+			if (data.prev == true) {
+				fn = "javascript:pageList(" + (data.beginPage - 1) + ");";
+			}
+			html += '<a href="' + fn + '" aria-label="Previous">';
+			html += '    <span aria-hidden="true">&laquo;</span>';
+			html += '</a>';
+		    html += '</li>';
+			
+		    for (var i = data.beginPage; i <= data.endPage; i++) {
+		    	if (i == data.pageNo) {
+				    html += '<li class="active"><a href="#1">' + i + '</a></li>';
+		    	}
+		    	else {
+		    		html += '<li><a href="javascript:listStore(' + i + ');">' + i + '</a></li>';
+		    	}
+		    }
+		    
+			clz = "";
+			if (data.next == false) {
+				clz = "disabled";
+			}
+			html += '<li class="' + clz + '">';
+			
+			fn = "";
+			
+			if (data.next == true) {
+				fn = "javascript:pageList(" + (data.endPage + 1) + ");";
+			}
+			html += '<a href="' + fn + '" aria-label="Next">';
+			html += '    <span aria-hidden="true">&raquo;</span>';
+			html += '</a>';
+		    html += '</li>';
+		}
+		
+		$("nav > ul.pagination").html(html);
 	}
 	
 	function listReview(no){
@@ -198,14 +273,14 @@
 			var store = result.store;
 			console.log(store);
 			var html = "";
-			html += "<table>";
-			html += "<tr>";
-			html += "<td>"+store.name+"</td>";
-			html += "<td>"+store.address+"</td>";
-			html += "<td>"+store.call+"</td>";
-			html += "<td>"+store.rating+"</td>";
-			html += "</tr>";
-			html += "</table>";
+			html += "<div class='wall'>";
+			html += "<ul>";
+			html += "<li>"+store.name+"</li>";
+			html += "<li>"+store.address+"</li>";
+			html += "<li>"+store.call+"</li>";
+			html += "<li>"+store.rating+"</li>";
+			html += "</ul>";
+			html += "</div>";
 			$('#list').html(html);
 			
 			var source = $("#entry-template").html(); 
