@@ -1,8 +1,8 @@
 package kr.co.mlec.vo;
 
 public class PageResultVO {
-	private int listSize = 10;
-	private int tabSize = 10;
+	private int listSize = 9;
+	private int tabSize = 5;
 	private int pageNo;
 	private int count;
 	
