@@ -1,7 +1,6 @@
-package kr.co.mlec.controller;
+/*package kr.co.mlec.controller;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -21,13 +20,12 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import kr.co.mlec.service.PhotoService;
-import kr.co.mlec.vo.PageVO;
 import kr.co.mlec.vo.PhotoFileVO;
 import kr.co.mlec.vo.PhotoVO;
 
 @Controller
 @RequestMapping("/photo")
-public class PhotoController {
+public class PhotoController_backup {
 
 	@Autowired
 	private PhotoService photoService;
@@ -44,8 +42,8 @@ public class PhotoController {
 	
 	@RequestMapping("/list.do")
 	@ResponseBody
-	public Map<String, Object> photoList(PageVO page) throws Exception {
-		System.out.println("pageNO = " + page.getPageNo());
+	public Map<String, Object> photoList(@RequestParam(value="pageNo", defaultValue="1") int pageNo) throws Exception {
+		System.out.println("pageNO = " + pageNo);
 		
 //		ModelAndView mav = new ModelAndView("/photo/list");
 //		mav.addObject("list", photoService.list());
@@ -55,10 +53,10 @@ public class PhotoController {
 //		for(PhotoVO e: list){
 //			System.out.println(e.getTitle());
 //		}
-		//Map<String, Object> map = new HashMap<>();
-		//map.put("list", photoService.list());
+		Map<String, Object> map = new HashMap<>();
+		map.put("list", photoService.list());
 		
-		return photoService.list(page);
+		return map;
 	}
 	
 	
@@ -79,9 +77,16 @@ public class PhotoController {
 	
 	
 	
-	public PhotoFileVO imgUpload(MultipartHttpServletRequest mRequest) throws Exception {
-		PhotoFileVO boardFile = null;
-
+	
+	
+	
+	@RequestMapping(value="/write.do", method=RequestMethod.POST)
+	public String write(PhotoVO board, MultipartHttpServletRequest mRequest) throws Exception {
+		
+		Map<String, Object> boardMap = new HashMap<>();
+		boardMap.put("board", board);
+		
+		// 파일 처리
 		String uploadPath = servletContext.getRealPath("/upload");
 		
 		// upload 하위에 모듈별 날짜 형태의 디렉토리 생성후 저장
@@ -96,7 +101,6 @@ public class PhotoController {
 		if (!f.exists()) {
 			f.mkdirs();
 		}
-		
 		
 		Iterator<String> iter = mRequest.getFileNames(); // 파일을 업로드 하는 input테그의 name속성들을 반환한다
 		while(iter.hasNext()) {
@@ -130,34 +134,23 @@ public class PhotoController {
 				
 				
 				
-				boardFile = new PhotoFileVO();
+				PhotoFileVO boardFile = new PhotoFileVO();
 				// boardFile.setNo(board.getNo());
 				boardFile.setOriName(oriFileName);
 				boardFile.setSystemName(saveFileName);
 				boardFile.setFilePath(datePath);
 				boardFile.setFileSize(fileSize);
 				
+				boardMap.put("boardFile", boardFile);
+				
+				
 				
 				// 임시저장된 파일을 원하는 경로에 저장(cos는 자동으로 저장하지만, 스프링은 지금처럼 직접 저장을 지정해 줘야 한다)
 				mFile.transferTo(new File(uploadPath + "/" + saveFileName));
 			} 
 		} 
-		
-		return boardFile;
-	}
-	
-	
-	
-	
-	
-	@RequestMapping(value="/write.do", method=RequestMethod.POST)
-	public String write(PhotoVO board, MultipartHttpServletRequest mRequest) throws Exception {
-		
-		Map<String, Object> boardMap = new HashMap<>();
-		boardMap.put("board", board);
-		boardMap.put("boardFile", this.imgUpload(mRequest));
-		
 		photoService.write(boardMap);
+		
 		System.out.println("등록된 게시물 번호 : " + board.getNo());
 		
 		return "redirect:/photo/main.do";
@@ -178,15 +171,8 @@ public class PhotoController {
 	
 	
 	@RequestMapping(value="/update.do", method=RequestMethod.POST)
-	public String update(PhotoVO board, MultipartHttpServletRequest mRequest) throws Exception{
-		Map<String, Object> boardMap = new HashMap<>();
-		boardMap.put("board", board);
-		boardMap.put("boardFile", this.imgUpload(mRequest));
+	public void update() throws Exception{
 		
-		photoService.update(boardMap);
-		System.out.println("수정된 게시물 번호 : " + board.getNo());
-		
-		return "redirect:/photo/main.do";
 	}
 
 	
@@ -207,3 +193,4 @@ public class PhotoController {
 
 
 
+*/

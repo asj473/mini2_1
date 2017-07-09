@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<!--  -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+<link href="/themat/view/photo/css/main.css" rel="stylesheet">
+<!--  -->
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+
+<style type="text/css">
+	/* table {
+		border: 2px solid black;
+	} */
+</style>
+
+</head>
+
+
+
+
+
+<body>
+	<h1>사진 게시판</h1>
+
+<div class="container">
+	<div class="header"></div>
+	
+	<div id="board"></div>		
+	
+	<nav>
+		<ul class="pagination"></ul>
+	</nav>		
+</div>
+	
+<!--  -->	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/themat/view/photo/js/main.js"></script>
+<!--  -->
+<script id="list-template" type="text/x-handlebars-template">
+		<hr>
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>글쓴이</th>
+					<th>등록일</th>
+				</tr>
+		{{#list}} 
+        <tr> 
+            <td>{{no}}</td> 
+            <td><a class="detail" id={{no}} href="#">{{title}}</a></td> 
+            <td>{{writer}}</td> 
+            <td>{{regDate}}</td> 
+        </tr> 
+        {{/list}} 
+			</table>
+	<a id="write" href='#'>글쓰기</a>
+</script>
+
+<script id="detail-template" type="text/x-handlebars-template">
+	<table>		
+		<tr>		
+		  <td>번호<td>
+		  <td id="boardNo">{{board.no}}<td>
+		</tr>		
+		<tr>		
+		  <td>제목<td>
+			<td id="boardTitle">{{board.title}}<td>
+		</tr>		
+		<tr>		
+		  <td>글쓴이<td>
+			<td id="boardwriter">{{board.writer}}<td>
+		</tr>		
+		<tr>		
+		  <td>내용<td>
+			<td id="boardContent">{{board.content}}<td>
+		</tr>		
+		<tr>		
+		  <td>등록일<td>
+		  <td id="regDate">{{board.regDate}}</td>	  
+		</tr>
+		<tr>		
+		  <td>첨부파일<td>
+		  <td>
+		  	<img id="img" src="/themat/upload{{file.filePath}}/{{file.systemName}}"/>
+		  </td>	  
+		</tr>
+	</table>
+	<button id="update">수정</button>
+	<button id="delete">삭제</button>
+</script>
+
+<script id="write-template" type="text/x-handlebars-template">
+	<form action='write.do' method='post' enctype="multipart/form-data">
+	  제목 : <input type='text' name='title' /><br>
+	  글쓴이 : <input type='text' name='writer' /><br>
+	  내용 : <br>
+	 <textarea name='content' rows='5' cols='70'></textarea><br>
+	  첨부파일 : <input type="file" name="attachFile" /><br>
+	<input type='submit' value='등록' />
+	</form>
+</script>
+
+<script id="update-template" type="text/x-handlebars-template">
+	<form action='update.do' method='post' enctype="multipart/form-data">
+ 	 <input type='hidden' name='no' value='{{boardNo}}'>
+	  제목 : <input type='text' name='title' value='{{boardTitle}}'/><br>
+	  내용 : <br>
+	<textarea name='content' rows='5' cols='70'>{{boardContent}}</textarea><br>
+	<img id="img" src="{{img}}"/>
+	  첨부파일 : <input type="file" id="file" name="attachFile" /><br>
+	<input type='submit' value='등록' />
+	</form>
+</script>
+
+<script>
+	$("#board").on("click", "#file", function() {
+		$("img").remove();		
+	});
+
+	$("#board").on("click", "#update", function() {
+		var board = {
+				boardNo : $("#boardNo").html(),
+				boardTitle : $("#boardTitle").html(),
+				boardContent : $("#boardContent").html(),
+				img : $("#img").attr("src")
+		}
+		//console.dir(board);
+
+		var source = $("#update-template").html(); 
+		var template = Handlebars.compile(source); 
+		var html = template(board);
+		$("#board").html(html);
+	});
+	
+	
+	$("#board").on("click", "#delete", function() {
+		$.ajax({
+			url: "/themat/photo/delete.do?no=" + $("#boardNo").html()
+		});
+		
+		location.href="/themat/photo/main.do";
+	});
+	
+	
+	$("#board").on("click", "#write", function() {
+		
+		var source = $("#write-template").html(); 
+		var template = Handlebars.compile(source); 
+		//var html = template(result.board);
+		$("#board").html(template);
+	});
+	
+
+
+	$("#board").on("click", ".detail", function() {
+		//console.dir("조회할 글번호", $(this).attr("id") );
+		
+		$.ajax({
+			url: "/themat/photo/detail.do",
+			data: {no: $(this).attr("id")},
+			dataType: "json"
+		})
+		.done(detailPhoto) 
+	});
+	
+	function detailPhoto(result) {
+		console.dir(result); // 콘솔 확인용
+		
+		 var source = $("#detail-template").html(); 
+		 var template = Handlebars.compile(source); 
+		 //var html = template(result.board);
+		 var html = template(result);
+		$("#board").html(html);
+	}
+
+	
+	
+	
+	function makePageList(result) {
+		console.dir(result); // 콘솔 확인용
+		
+		 var source = $("#list-template").html(); 
+		 var template = Handlebars.compile(source); 
+		 var html = template(result);
+		$("#board").html(html);
+	}
+	
+	
+	function pageList(pageNo) {
+		/* if (pageNo === undefined) {
+			pageNo = 1;
+		} */
+		$.ajax({
+			url: "/themat/photo/list.do",
+			dataType: "json"
+		})
+		.done(makePageList); 
+	}
+	
+	
+	pageList();
+	
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

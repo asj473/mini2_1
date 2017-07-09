@@ -9,16 +9,33 @@
 	    <result column="writer" property="writer" />
 	    <result column="content" property="content" />
 	    <result column="reg_date" property="regDate" />
+	    
+	    <result property="no" column="no"/>
+		<result property="oriName" column="ori_name"/>
+		<result property="systemName" column="system_name"/>
+		<result property="filePath" column="file_path"/>
+		<result property="fileSize" column="file_size"/>
 	</resultMap>
 	
 	
-	<select id="selectBoard" resultMap="photoMap">
+	<!-- <select id="selectBoard" resultMap="photoMap">
 	    select * 
 		  from photo_board  
 		 order by no desc
+	</select> -->
+	<select id="selectBoard" resultMap="photoMap" parameterType="pageVO">
+		select * 
+		  from photo_board 
+		 inner join photo_file
+		    on photo_board.no = photo_file.no
+	     order by photo_board.no desc
+	     limit #{begin}, #{end}
 	</select>
 
-
+	<select id="selectBoardCount" parameterType="pageVO" resultType="int">
+    	select count(*)
+          from photo_board 
+    </select> 
 
 
 	<select id="selectBoardByNo" parameterType="int" resultMap="photoMap">
@@ -43,7 +60,7 @@
 
 	
 	<resultMap id="photoFileMap" type="photoFileVO" >
-		<result property="fileNo" column="file_no"/>
+		<!-- <result property="fileNo" column="file_no"/> -->
 		<result property="no" column="no"/>
 		<result property="oriName" column="ori_name"/>
 		<result property="systemName" column="system_name"/>
@@ -68,7 +85,7 @@
 	</insert>
 	
 	<select id="selectBoardFileByNo" parameterType="int" resultMap="photoFileMap">
-	    select file_no,
+	    select <!-- file_no, -->
 	           no,
 	           ori_name,
 	           system_name,
@@ -79,6 +96,42 @@
 	</select>  
 
 
+
+
+
+
+	<delete id="deleteBoard" parameterType="int">
+	    delete
+	      from photo_board
+	     where no = #{no} 
+	</delete>
+
+	<delete id="deleteFile" parameterType="int">
+	    delete
+	      from photo_file
+	     where no = #{no} 
+	</delete>
+
+
+
+
+
+	<update id="updateBoard" parameterType="photoVO">
+		update photo_board 
+		   set title = #{title},
+		       content = #{content} 
+		 where no = #{no}    	    
+	</update>
+
+
+	<update id="updateBoardFile" parameterType="photoFileVO">
+		update photo_file 
+		   set ori_name = #{oriName},
+			   system_name = #{systemName},
+			   file_path = #{filePath}, 
+			   file_size = #{fileSize} 
+		 where no = #{no}
+	</update>
 
 
 

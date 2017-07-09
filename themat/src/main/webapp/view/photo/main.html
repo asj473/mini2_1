@@ -2,7 +2,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사진 갤러리</title>
+
+<!--  -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+<link href="/themat/view/photo/css/main.css" rel="stylesheet">
+<!--  -->
+
 <script src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   crossorigin="anonymous"></script>
@@ -10,33 +17,179 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
 
 <style type="text/css">
-	table {
-		border: 2px solid black;
+	.board-title{
+		margin-left: 5%; 
 	}
+	
+	nav{
+		text-align: center;
+	}
+	
 </style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FREEHTML5.CO" />
 
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic|Merriweather:300,400italic,300italic,400,700italic' rel='stylesheet' type='text/css'>
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="/themat/lib/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="/themat/lib/css/icomoon.css">
+	<!-- Simple Line Icons -->
+	<link rel="stylesheet" href="/themat/lib/css/simple-line-icons.css">
+	<!-- Datetimepicker -->
+	<link rel="stylesheet" href="/themat/lib/css/bootstrap-datetimepicker.min.css">
+	<!-- Flexslider -->
+	<link rel="stylesheet" href="/themat/lib/css/flexslider.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="/themat/lib/css/bootstrap.css">
+
+	<link rel="stylesheet" href="/themat/lib/css/style.css">
+
+
+	<!-- Modernizr JS -->
+	<script src="/themat/lib/js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="/themat/lib/js/respond.min.js"></script>
+	<![endif]-->
 </head>
 
-
-
-
-
 <body>
-	<h1>사진 게시판</h1>
+
+<div class="js-sticky">
+		<div class="fh5co-main-nav">
+			<div class="container-fluid">
+				<div class="fh5co-menu-1">
+					<a href="#" data-nav-section="home">home</a>
+					<a href="#" data-nav-section="gallery">Gallery</a>
+				</div>
+				<div class="fh5co-logo">
+					<a href="#">Themat</a>
+				</div>
+				<div class="fh5co-menu-2">
+					<a href="#" data-nav-section="review">Review</a>
+					<a href="#" data-nav-section="reservation">Q&A</a>
+				</div>
+			</div>
+		</div>
+		</div>
+		
+<div class="header"></div>
 
 <div class="container">
-	<div class="header"></div>
+	<h1 class="board-title">갤러리</h1><hr>
 	
-	<div id="board"></div>		
+	<div id="board" class="carouselGallery-grid hidden-xs"></div>		
+	
 	
 	<nav>
 		<ul class="pagination"></ul>
 	</nav>		
 </div>
-	
-	
-	
 
+
+
+
+<div id="fh5co-footer">
+		<div class="container">
+			<div class="row row-padded">
+				<div class="col-md-12 text-center">
+					<p class="to-animate">&copy; 2016 Foodee Free HTML5 Template. <br> Designed by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> Demo /themat/lib/images: <a href="http://pexels.com/" target="_blank">Pexels</a> <br> Tasty Icons Free <a href="http://handdrawngoods.com/store/tasty-icons-free-food-icons/" target="_blank">handdrawngoods</a>
+					</p>
+					<p class="text-center to-animate"><a href="#" class="js-gotop">Go To Top</a></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<ul class="fh5co-social">
+						<li class="to-animate-2"><a href="#"><i class="icon-facebook"></i></a></li>
+						<li class="to-animate-2"><a href="#"><i class="icon-twitter"></i></a></li>
+						<li class="to-animate-2"><a href="#"><i class="icon-instagram"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<!-- jQuery -->
+	<script src="/themat/lib/js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="/themat/lib/js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="/themat/lib/js/bootstrap.min.js"></script>
+	<!-- Bootstrap DateTimePicker -->
+	<script src="/themat/lib/js/moment.js"></script>
+	<script src="/themat/lib/js/bootstrap-datetimepicker.min.js"></script>
+	<!-- Waypoints -->
+	<script src="/themat/lib/js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="/themat/lib/js/jquery.stellar.min.js"></script>
+
+	<!-- Flexslider -->
+	<script src="/themat/lib/js/jquery.flexslider-min.js"></script>
+	<script>
+		$(function () {
+	       $('#date').datetimepicker();
+	   });
+	</script>
+	<!-- Main JS -->
+	<script src="/themat/lib/js/main.js"></script>
+
+
+
+<script id="insta-template" type="text/x-handlebars-template">
+	<div class="">
+		<div class="carouselGallery-col-100">
+
+
+            {{#list}}
+            <div 
+                class="carouselGallery-col-1 carouselGallery-carousel" 
+                data-index= {{@index}} 
+                data-username={{writer}} 
+                data-imagetext={{content}} 
+                data-location={{regDate}} 
+                data-likes="3144" 
+                data-imagepath="/themat/upload{{filePath}}/{{systemName}}"
+                data-posturl="main.do" 
+				data-no={{no}} 
+                style="background-image:url(/themat/upload{{filePath}}/{{systemName}});">
+                <div class="carouselGallery-item">
+                    <div class="carouselGallery-item-meta">
+                        <span class="carouselGallery-item-meta-user">
+                            {{title}}
+                        </span>
+                        <span class="carouselGallery-item-meta-likes">
+                            <span class="icons icon-heart"></span>3144
+                        </span>
+                    </div>
+                </div>
+            </div>
+			{{/list}}
+            
+            
+		</div>
+	</div><br><br>
+	<a id="write" href='#'>글쓰기</a>	
+</script>
 <script id="list-template" type="text/x-handlebars-template">
 		<hr>
 		<div class="table-responsive">
@@ -63,58 +216,102 @@
 	<table>		
 		<tr>		
 		  <td>번호<td>
-		  <td>{{board.no}}<td>
+		  <td id="boardNo">{{board.no}}<td>
 		</tr>		
 		<tr>		
 		  <td>제목<td>
-			<td>{{board.title}}<td>
+			<td id="boardTitle">{{board.title}}<td>
 		</tr>		
 		<tr>		
 		  <td>글쓴이<td>
-			<td>{{board.writer}}<td>
+			<td id="boardwriter">{{board.writer}}<td>
 		</tr>		
 		<tr>		
 		  <td>내용<td>
-			<td>{{board.content}}<td>
+			<td id="boardContent">{{board.content}}<td>
 		</tr>		
 		<tr>		
 		  <td>등록일<td>
-		  <td>{{board.regDate}}</td>	  
+		  <td id="regDate">{{board.regDate}}</td>	  
 		</tr>
 		<tr>		
 		  <td>첨부파일<td>
 		  <td>
-		  	<img src="http://localhost:8000/themat/upload{{file.filePath}}/{{file.systemName}}"/>
+		  	<img id="img" src="/themat/upload{{file.filePath}}/{{file.systemName}}"/>
 		  </td>	  
 		</tr>
 	</table>
+	<button id="update">수정</button>
+	<button id="delete">삭제</button>
 </script>
 
 <script id="write-template" type="text/x-handlebars-template">
 	<form action='write.do' method='post' enctype="multipart/form-data">
-	  제목 : <input type='text' name='title' /><br>
 	  글쓴이 : <input type='text' name='writer' /><br>
 	  내용 : <br>
 	 <textarea name='content' rows='5' cols='70'></textarea><br>
 	  첨부파일 : <input type="file" name="attachFile" /><br>
 	<input type='submit' value='등록' />
 	</form>
-	<a href='list.do'>목록</a>
+</script>
+
+<script id="update-template" type="text/x-handlebars-template">
+	<form action='update.do' method='post' enctype="multipart/form-data">
+ 	 <input type='hidden' name='no' value='{{boardNo}}'>
+	  내용 : <br>
+	<textarea name='content' rows='5' cols='70'>{{boardContent}}</textarea><br>
+	<img id="img" src="{{img}}"/>
+	  첨부파일 : <input type="file" id="file" name="attachFile" /><br>
+	<input type='submit' value='등록' />
+	</form>
 </script>
 
 <script>
+	$("#board").on("click", "#file", function() {
+		$("img").remove();		
+	});
+
+	$("body").on("click", "#update", function() {
+		var board = {
+				boardNo : $("#boardNo").html(),
+				//boardTitle : $("#boardTitle").html(),
+				boardContent : $("#boardContent").html(),
+				img : $("#img").attr("src")
+		}
+		//console.dir(board);
+
+		var source = $("#update-template").html(); 
+		var template = Handlebars.compile(source); 
+		var html = template(board);
+		$("#board").html(html);
+		
+		removeModal();
+	});
+	
+	
+	$("body").on("click", "#delete", function() {
+		$.ajax({
+			url: "/themat/photo/delete.do?no=" + $("#boardNo").html()
+		});
+		
+		location.href="/themat/photo/main.do";
+	});
+	
+	
 	$("#board").on("click", "#write", function() {
+		$("nav").hide();
 		
 		var source = $("#write-template").html(); 
 		var template = Handlebars.compile(source); 
 		//var html = template(result.board);
 		$("#board").html(template);
-	})
+		
+	});
 	
 
 
 	$("#board").on("click", ".detail", function() {
-		console.dir("조회할 글번호", $(this).attr("id") );
+		//console.dir("조회할 글번호", $(this).attr("id") );
 		
 		$.ajax({
 			url: "/themat/photo/detail.do",
@@ -122,7 +319,7 @@
 			dataType: "json"
 		})
 		.done(detailPhoto) 
-	})
+	});
 	
 	function detailPhoto(result) {
 		console.dir(result); // 콘솔 확인용
@@ -140,19 +337,85 @@
 	function makePageList(result) {
 		console.dir(result); // 콘솔 확인용
 		
-		 var source = $("#list-template").html(); 
+//		 var source = $("#list-template").html(); 
+		 var source = $("#insta-template").html(); 
 		 var template = Handlebars.compile(source); 
 		 var html = template(result);
 		$("#board").html(html);
+		
+		makePageLink(result.pageResult);
+	}
+	
+	
+	/* function makePageList(result) {
+		console.dir(result); // 콘솔 확인용
+		
+		var html = "";
+		for (var i = 0; i < result.list.length; i++) {
+			var board = result.list[i];
+			html += '<div class=""><div class="carouselGallery-col-100"><div class="carouselGallery-col-1 carouselGallery-carousel" data-index="0" data-username="안쪽 이름" data-imagetext="글 내용!" data-location="부가 설명?" data-likes="3144" data-imagepath="https://scontent.cdninstagram.com/hphotos-xtf1/t51.2885-15/s640x640/sh0.08/e35/12105099_1702415459987632_609795510_n.jpg" data-posturl="https://instagram.com/p/96UTFPwVaN/" style="background-image:url(https://scontent.cdninstagram.com/hphotos-xtf1/t51.2885-15/s640x640/sh0.08/e35/12105099_1702415459987632_609795510_n.jpg);"><div class="carouselGallery-item"><div class="carouselGallery-item-meta"><span class="carouselGallery-item-meta-user">바깥 이름</span><span class="carouselGallery-item-meta-likes"><span class="icons icon-heart"></span>3144</span></div></div></div></div></div>'
+		}
+		$("#board").html(html);
+	} */
+	
+	
+	
+	function makePageLink(data) {
+		var html = "";
+		if (data.count != 0) {
+			var clz = "";
+			if (data.prev == false) {
+				clz = "disabled";
+			}
+			html += '<li class="' + clz + '">';
+			
+			var fn = "";
+			
+			if (data.prev == true) {
+				fn = "javascript:pageList(" + (data.beginPage - 1) + ");";
+			}
+			html += '<a href="' + fn + '" aria-label="Previous">';
+			html += '    <span aria-hidden="true">&laquo;</span>';
+			html += '</a>';
+		    html += '</li>';
+			
+		    for (var i = data.beginPage; i <= data.endPage; i++) {
+		    	if (i == data.pageNo) {
+				    html += '<li class="active"><a href="#1">' + i + '</a></li>';
+		    	}
+		    	else {
+		    		html += '<li><a href="javascript:pageList(' + i + ');">' + i + '</a></li>';
+		    	}
+		    }
+		    
+			clz = "";
+			if (data.next == false) {
+				clz = "disabled";
+			}
+			html += '<li class="' + clz + '">';
+			
+			fn = "";
+			
+			if (data.next == true) {
+				fn = "javascript:pageList(" + (data.endPage + 1) + ");";
+			}
+			html += '<a href="' + fn + '" aria-label="Next">';
+			html += '    <span aria-hidden="true">&raquo;</span>';
+			html += '</a>';
+		    html += '</li>';
+		} 
+		
+		$("nav > ul.pagination").html(html);
 	}
 	
 	
 	function pageList(pageNo) {
-		/* if (pageNo === undefined) {
+		 if (pageNo === undefined) {
 			pageNo = 1;
-		} */
+		}
 		$.ajax({
 			url: "/themat/photo/list.do",
+			data: {pageNo : pageNo},
 			dataType: "json"
 		})
 		.done(makePageList); 
@@ -162,6 +425,16 @@
 	pageList();
 	
 </script>
+<!--  -->	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/themat/view/photo/js/main.js"></script>
+<!--  -->
+
+
+
+
+
+
 </body>
 </html>
 

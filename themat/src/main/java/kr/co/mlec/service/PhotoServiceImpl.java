@@ -1,13 +1,14 @@
 package kr.co.mlec.service;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.mlec.mapper.PhotoMapper;
+import kr.co.mlec.vo.PageResultVO;
+import kr.co.mlec.vo.PageVO;
 import kr.co.mlec.vo.PhotoFileVO;
 import kr.co.mlec.vo.PhotoVO;
 
@@ -18,8 +19,13 @@ public class PhotoServiceImpl implements PhotoService{
 	private PhotoMapper mapper;
 	
 	@Override
-	public List<PhotoVO> list() throws Exception {
-		return mapper.selectBoard();
+	public Map<String, Object> list(PageVO page) throws Exception {
+		Map<String, Object> map = new HashMap<>();
+		map.put("list", mapper.selectBoard(page));
+		//map.put("pageResult", mapper.selectBoardCount(page));
+		map.put("pageResult", new PageResultVO(page.getPageNo(), mapper.selectBoardCount(page)));
+		System.out.println(map.get("pageResult"));
+		return map;
 	}
 
 	@Override
@@ -44,6 +50,28 @@ public class PhotoServiceImpl implements PhotoService{
 			mapper.insertBoardFile(boardFile);
 		}
 	}
+
+	@Override
+	public void delete(int no) throws Exception {
+		mapper.deleteBoard(no);
+		mapper.deleteFile(no);
+	}
+
+	@Override
+	public void update(Map<String, Object> boardMap) throws Exception {
+		PhotoVO board = (PhotoVO)boardMap.get("board");
+		mapper.updateBoard(board);
+
+		if(boardMap.get("boardFile") != null){
+			PhotoFileVO boardFile = (PhotoFileVO)boardMap.get("boardFile");
+			boardFile.setNo(board.getNo());
+			
+			mapper.updateBoardFile(boardFile);
+		}
+	}
+
+
+	
 	
 }
 
