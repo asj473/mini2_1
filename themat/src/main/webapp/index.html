@@ -72,7 +72,7 @@
 					<div class="container">
 						<div class="row">
 							<h1 class="to-animate">The mat</h1>
-							<h2 class="to-animate">Lovely Designed <span>by</span> ooo</h2>
+							<h2 class="to-animate">Lovely Designed <span>by</span> us</h2>
 						</div>
 					</div>
 				</div>
@@ -86,23 +86,27 @@
 			
 		</div>
 		
-		<div class="js-sticky">
+<!-- 		<div class="js-sticky"> -->
 		<div class="fh5co-main-nav">
 			<div class="container-fluid">
 				<div class="fh5co-menu-1">
 					<a href="#" data-nav-section="home" >home</a>
 					<a href="#" data-nav-section="gallery">Gallery</a>
-				<div class="fh5co-logo">
-					<a href="#">Themat</a>
 				</div>
+				<div class="fh5co-logo">
+						<a href="#">Themat</a>
+				</div>
+				<div class="fh5co-menu-2">
 					<a href="#" data-nav-section="review">Review</a>
 					<a href="#" data-nav-section="qna">Q&A</a>
 				</div>
+<!-- 				<div class="fh5co-menu-1"> -->
+<!-- 					<a href="javascript:gotoPage();" id="loginForm">Login</a> -->
+<!-- 					<a href="/themat/member/logout.do" id="logout">Logout</a> -->
+<!-- 				</div> -->
 			</div>
 		</div>
-		</div>
-		<a href="/themat/member/loginForm.do" id="loginForm">Login</a>
-		<a href="/themat/member/logout.do" id="logout">Logout</a>
+<!-- 		</div> -->
 
 		<div id="fh5co-featured" data-section="gallery">
 			<div class="container">
@@ -226,6 +230,11 @@
 	
 	<!-- JS -->
 	<script>
+	function gotoPage(){
+		console.log("오지?");
+		location.href="/themat/member/loginForm.do";
+	}
+	
 	
 		function makePageList(result) {
 			console.dir(result); // 콘솔 확인용
@@ -398,7 +407,7 @@
 										</div>
 									</div>
 									<div class="fh5co-food-pricing">
-										★ {{rating}}
+										★ x {{rating}}
 									</div>
 								</li>
 						{{/list}}
