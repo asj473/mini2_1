@@ -5,6 +5,7 @@
 <title>리뷰 게시판</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
 <script src="/themat/lib/js/jquery.min.js"></script>
+<script src="//cdn.ckeditor.com/4.7.1/basic/ckeditor.js"></script>
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
@@ -61,7 +62,10 @@
 	<div id="tlist" class="container" > </div>
 	
 	
-	 
+	 	<nav class="container">
+			<ul class="pagination"></ul>
+			
+		</nav>
 	 
 	
 	</div>	
@@ -117,10 +121,12 @@
 	  제목 : 	<input type='text' name='title' /><br>
 	  글쓴이 : <input type='text' name='writer' /><br>
 	  내용 : <br>
-	 		<textarea name='content' rows='5' cols='70'></textarea><br>
+	 		<textarea id='ckk' name='content' rows='5' cols='70'></textarea><br>
 			<input type='submit' value='등록' />
 		</form>
 	<a href='listForm.do'>목록</a>
+
+	
      </script>
 		
 	 
@@ -129,25 +135,81 @@
 	 
 <script type="text/javascript">
 	//리스트 뿌리는 ajax
+	function pageList(pageNo) {
+		if (pageNo === undefined) {
+			pageNo = 1;
+		}
 	$.ajax({
 		url:"/themat/qna/list.do",	
+		data: {pageNo: pageNo},
 		dataType:"json"
 	}).done(function(result){
+		console.log(result);
 		var source = $("#entry-template").html(); 
 		var template = Handlebars.compile(source); 	
 		var html = template(result);
 		$('#tlist').html(html);
-	});
+		
+		makePageLink(result.pageResult);
+	})}
 	
 	//글쓰기폼 핸들러 뿌리기
 	$("#tlist").on("click", "button", function(){
 		var source = $("#write-template").html(); 
 		var template = Handlebars.compile(source); 	
 		$('#tlist').html(template);
+		CKEDITOR.replace("ckk");
 	})
 	
+	function makePageLink(data) {
+		var html = "";
+		if (data.count != 0) {
+			var clz = "";
+			if (data.prev == false) {
+				clz = "disabl0ed";
+			}
+			html += '<li class="' + clz + '">';
+			
+			var fn = "";
+			
+			if (data.prev == true) {
+				fn = "javascript:pageList(" + (data.beginPage - 1) + ");";
+			}
+			html += '<a href="' + fn + '" aria-label="Previous">';
+			html += '    <span aria-hidden="true">&laquo;</span>';
+			html += '</a>';
+		    html += '</li>';
+			
+		    for (var i = data.beginPage; i <= data.endPage; i++) {
+		    	if (i == data.pageNo) {
+				    html += '<li class="active"><a href="#1">' + i + '</a></li>';
+		    	}
+		    	else {
+		    		html += '<li><a href="javascript:pageList(' + i + ');">' + i + '</a></li>';
+		    	}
+		    }
+		    
+			clz = "";
+			if (data.next == false) {
+				clz = "disabled";
+			}
+			html += '<li class="' + clz + '">';
+			
+			fn = "";
+			
+			if (data.next == true) {
+				fn = "javascript:pageList(" + (data.endPage + 1) + ");";
+			}
+			html += '<a href="' + fn + '" aria-label="Next">';
+			html += '    <span aria-hidden="true">&raquo;</span>';
+			html += '</a>';
+		    html += '</li>';
+		}
+		
+		$("nav > ul.pagination").html(html);
+	}
 	
-	
+	pageList();
 	
 </script>
 

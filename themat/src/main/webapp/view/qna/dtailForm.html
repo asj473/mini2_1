@@ -60,7 +60,24 @@
 	 <div >
 		<!--   여기서 부터 시작  -->
 		<div id="ditail" class="container"></div>
-	
+		
+	<!--  코멘트 시작 폼  -->
+		<div id="comment" class="container">
+			<form id="rForm" method="post" action="commentRegist.do">
+				<table width="70%">
+				<tr>
+					<td><input type="text" name="userId" value="" /></td>
+					<td><textarea name="content" rows="2" cols="50"></textarea></td>
+					<td><input type="submit" value="등록" /></td>
+				</tr>	
+				</table>
+			</form>
+		</div>
+		
+		<div id="commentList" class="container" ></div>
+		
+		
+		
 	</div> 
 	 
 	
@@ -131,7 +148,7 @@
  
  <script type="text/javascript">
  
- // url파람 가져오기
+ // url no값 파람 가져오기
  function getparam(paramName){
 	 var url = window.location.search.substring(1); //url에서 처음부터 '?'까지 삭제
 	var urlArray = url.split('&');
@@ -144,7 +161,134 @@
 		 }
 	 }
  }
- //정보 뿌리기
+ 
+ //댓글 리스트
+ function commentList(){
+	 $.ajax({
+			url: "/themat/qna/commentList.do",
+			data: {no: getparam('bno')},
+			dataType: "json"
+		}).done(makeCommentList);
+ }
+ 
+		
+ function makeCommentList(result) {
+		var html = "";
+		html += "<table width='80%' border='1'>";
+
+		for (var i = 0; i < result.length; i++) {
+			var comment = result[i];
+			html += "<tr id='row" + comment.commentNo + "'>";
+			html += "<td>" + comment.userId + "</td>";
+			html += "<td>" + comment.content + "</td>";
+			
+			var date = new Date(comment.regDate);
+			var time = date.getFullYear() + "-"
+			         + (date.getMonth() + 1) + "-"
+			         + date.getDate() + " "
+			         + date.getHours() + ":"
+			         + date.getMinutes() + ":"
+			         + date.getSeconds();
+			html += "<td>" + time + "</td>";
+			html += "<td>";
+			html += "  <a href='javascript:commentDelete(" + comment.commentNo + ");'>삭제</a>";	
+			html += "  <a href='javascript:commentUpdateForm(" + comment.commentNo + ");'>수정</a>";	
+			html += "</td>";
+			html += "</tr>";
+			
+		}
+		if (result.length == 0) {
+			html += "<tr>";
+			html += "  <td colspan='4'>댓글이 존재하지 않습니다.</td>";
+			html += "</tr>";
+		}
+		html += "</table>";
+		
+		$("#commentList").html(html);
+	}
+ 
+//댓글 등록 처리
+	$("#rForm").submit(function () {
+		$.ajax({
+			url: "/themat/qna/commentRegist.do",
+			type: "POST", 
+			data: {
+				no: getparam('bno'),
+				content: $("#rForm textarea[name='content']").val(),
+				userId: $("#rForm input[name='userId']").val()
+			},
+			dataType: "json"
+		})
+		.done(function (result) {
+			// 입력폼 초기화 작업 
+			// 로그인 안한 상태인 경우
+			if(!'${user.id}') {
+				$("#rForm input[name='userId']").val("");
+			}
+			$("#rForm textarea[name='content']").val("");
+			
+			makeCommentList(result);
+		});
+		return false;
+	});
+ 
+	//댓글 삭제 
+	function commentDelete(commentNo) {
+		$.ajax({
+			url: "/themat/qna/commentDelete.do",
+			data: {
+				no: getparam('bno'),
+				commentNo: commentNo,
+				dataType: "json" 
+			},
+			dataType: "json"
+		})
+		.done(makeCommentList);
+	}
+ 
+	// 댓글 수정 
+	function commentUpdateForm(commentNo) {
+		// id가 row로 시작하는 모든 엘리먼트 ...
+		$("#commentList tr[id ^= 'row']").show();
+		$("#commentList tr[id ^= 'mod']").hide();
+		
+		var modId = $("#row" + commentNo + " > td:eq(0)").text();
+		var modContent = $("#row" + commentNo + " > td:eq(1)").text();
+
+		var html = "";
+		html += "<tr id='modRow" + commentNo + "'>";
+		html += "  <td>" + modId + "</td>";
+		html += "  <td><textarea name='content'>" + modContent + "</textarea></td>";
+		html += "  <td colspan='2'>";
+		html += "    <a href='javascript:commentUpdate(" + commentNo + ");'>수정</a>";	
+		html += "    <a href='javascript:commentCancel(" + commentNo + ");'>취소</a>";	
+		html += "  </td>";
+		html += "</tr>";
+		
+		// 해당 tr를 화면에서 숨긴다.
+		$("#row" + commentNo).after(html);
+		$("#row" + commentNo).hide();
+	}
+	function commentCancel(commentNo) {
+		$("#row" + commentNo).show();
+		$("#modRow" + commentNo).remove();
+	}
+	function commentUpdate(commentNo) {
+		$.ajax({
+			url: "commentUpdate.do",
+			type: "POST",
+			data: {
+				no: "${board.no}", 
+				content: $("#modRow" + commentNo + " textarea[name=content]").val(), 
+				commentNo: commentNo
+			},
+			dataType: "json"
+		})
+		.done(makeCommentList);
+	}
+	
+ 
+ //디테일 정보 뿌리기
  $.ajax({
 	url:"/themat/qna/dtail.do",
 	data:{bno : getparam('bno')},
@@ -154,9 +298,13 @@
 		var template = Handlebars.compile(source); 	
 		var html = template(result);
 		$('#ditail').html(html);
+		
+	commentList()
  })
  
- //목록으로 가기
+ 
+ 
+ //리스트 목록으로 가기
  $("button:eq(2)").click(function(){
 	 location.href="/themat/qna/listForm.do";
  })
@@ -189,7 +337,7 @@
 	})
  })
  
- 
+//  commentList()
  </script>
  <!-- jQuery -->
 	<script src="/themat/lib/js/jquery.min.js"></script>
