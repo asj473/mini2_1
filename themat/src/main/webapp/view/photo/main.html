@@ -26,33 +26,18 @@
 	}
 	
 </style>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FREEHTML5.CO" />
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
 
 	<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic|Merriweather:300,400italic,300italic,400,700italic' rel='stylesheet' type='text/css'>
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="/themat/lib/css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="/themat/lib/css/icomoon.css">
 	<!-- Simple Line Icons -->
-	<link rel="stylesheet" href="/themat/lib/css/simple-line-icons.css">
 	<!-- Datetimepicker -->
 	<link rel="stylesheet" href="/themat/lib/css/bootstrap-datetimepicker.min.css">
 	<!-- Flexslider -->
@@ -77,32 +62,50 @@
 		<div class="fh5co-main-nav">
 			<div class="container-fluid">
 				<div class="fh5co-menu-1">
-					<a href="#" data-nav-section="home">home</a>
-					<a href="#" data-nav-section="gallery">Gallery</a>
+					<a href="/themat/" >home</a>
+					<a href="/themat/photo/main.do">Gallery</a>
 				</div>
 				<div class="fh5co-logo">
-					<a href="#">Themat</a>
+					<a href="/themat/">Themat</a>
 				</div>
 				<div class="fh5co-menu-2">
-					<a href="#" data-nav-section="review">Review</a>
-					<a href="#" data-nav-section="reservation">Q&A</a>
+					<a href="/themat/view/review/reviewMain.html" >Review</a>
+					<a href="/themat/view/qna/listForm.html" >Q&A</a>
 				</div>
 			</div>
 		</div>
-		</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
 		
 <div class="header"></div>
 
 <div class="container">
-	<h1 class="board-title">갤러리</h1><hr>
+	<div>
+	<h1 class="board-title" style="display: inline-block; margin-right: 20px;">Gallery</h1><a id="write" href='#' class="btn btn-primary btn-outline">Write</a>	<hr>
+	</div>
 	
 	<div id="board" class="carouselGallery-grid hidden-xs"></div>		
 	
 	
+</div>
+
 	<nav>
 		<ul class="pagination"></ul>
 	</nav>		
-</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -188,7 +191,6 @@
             
 		</div>
 	</div><br><br>
-	<a id="write" href='#'>글쓰기</a>	
 </script>
 <script id="list-template" type="text/x-handlebars-template">
 		<hr>
@@ -260,8 +262,8 @@
  	 <input type='hidden' name='no' value='{{boardNo}}'>
 	  내용 : <br>
 	<textarea name='content' rows='5' cols='70'>{{boardContent}}</textarea><br>
-	<img id="img" src="{{img}}"/>
-	  첨부파일 : <input type="file" id="file" name="attachFile" /><br>
+	<img id="img" src="{{img}}" style="max-width:500px;"/>
+	<input type="file" id="file" name="attachFile" /><br>
 	<input type='submit' value='등록' />
 	</form>
 </script>
@@ -286,9 +288,17 @@
 		$("#board").html(html);
 		
 		removeModal();
+		$("nav").hide();
 	});
 	
+	var removeModal = function(){
+        $('body').find('.carouselGallery-wrapper').remove();
+        $('body').removeClass('noscroll');
+        $('body').css('position', 'static');
+        $('body').animate({scrollTop: scrollTo}, 0);
+    };
 	
+    
 	$("body").on("click", "#delete", function() {
 		$.ajax({
 			url: "/themat/photo/delete.do?no=" + $("#boardNo").html()
