@@ -1,6 +1,8 @@
 package kr.co.mlec.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +18,6 @@ public class ReviewServiceImpl implements ReviewService{
 	@Autowired
 	private ReviewMapper reviewMapper;
 	
-	@Override
-	public List<ReviewVO> listReview(int no) throws Exception {
-		List<ReviewVO> list = reviewMapper.listReview(no);
-		
-		return list;
-	}
 
 	@Override
 	public ReviewVO detailReview(int no) throws Exception {
@@ -50,19 +46,38 @@ public class ReviewServiceImpl implements ReviewService{
 		
 		return reviewMapper.detailStore(no);
 	}
-
+	
 	@Override
-	public List<StoreVO> listStore(PageVO page) throws Exception {
-//		List<StoreVO> list = reviewMapper.listStore(page);
+	public List<ReviewVO> listReview(int no, PageVO page) throws Exception {
+//		List<ReviewVO> list = reviewMapper.listReview(no);
+		Map<String, Object> param = new HashMap<>();
+		param.put("page", page);
+		param.put("storeNo", no);
 		
-		return reviewMapper.listStore(page);
+		return reviewMapper.listReview(param);
 	}
 
 	@Override
-	public int storeCount(PageVO page) throws Exception {
+	public List<StoreVO> listStore(String category, PageVO page) throws Exception {
+//		List<StoreVO> list = reviewMapper.listStore(page);
+		Map<String, Object> param = new HashMap<>();
+		param.put("page", page);
+		param.put("category", category);
+		
+		return reviewMapper.listStore(param);
+	}
+
+	@Override
+	public int storeCount(String category) throws Exception {
 //		int count = reviewMapper.storeCount(page);
 		
-		return reviewMapper.storeCount(page);
+		return reviewMapper.storeCount(category);
+	}
+
+	@Override
+	public int reviewCount(int no) throws Exception {
+		// TODO Auto-generated method stub
+		return reviewMapper.reviewCount(no);
 	}
 
 }

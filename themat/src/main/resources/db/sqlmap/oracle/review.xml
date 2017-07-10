@@ -14,11 +14,13 @@
 		<result column="reg_date" property="regDate"/>
 	</resultMap>
 
-	<select id="listReview" parameterType="int" resultMap="reviewMap">
+	<select id="listReview" parameterType="Map" resultMap="reviewMap">
 		select * 
 		  from review, store
 	     where review.store_no = store.no
-	       and review.store_no = #{no}
+	       and review.store_no = #{storeNo}
+	     order by review.reg_date desc
+	     limit #{page.begin}, #{page.end}
 	</select>
 
 
@@ -33,7 +35,7 @@
 		<result column="img" property="img"/>
 	</resultMap>
 	
-	<select id="listStore" parameterType="PageVO" resultMap="storeMap">
+	<select id="listStore" parameterType="Map" resultMap="storeMap">
 <!--     	select * -->
 <!--     	  from (  -->
 <!--     	  		 select rownum as rnum, a.* -->
@@ -43,12 +45,22 @@
 <!--     	                ) as a  -->
 <!--     	       )  as t -->
 <!--     	 where rnum between #{begin} and #{end} -->
-		select * from store limit #{begin}, #{end}
+		select * 
+		  from store 
+		 where category = #{category}
+		 limit #{page.begin}, #{page.end}
     </select> 
 
-    <select id="storeCount" parameterType="PageVO" resultType="int">
+    <select id="storeCount" parameterType="String" resultType="int">
     	select count(*)
           from store
+    	 where category = #{category}
+    </select>
+     
+    <select id="reviewCount" parameterType="int" resultType="int">
+    	select count(*)
+          from review
+    	 where store_no = #{no}
     </select> 
     
     
@@ -57,4 +69,9 @@
 	      from store
 	     where no = #{no}
 	</select>
+	
+	<insert id="registReview" parameterType="ReviewVO">
+		insert into review(content, store_no, rating)
+		values(#{content}, #{storeNo}, #{rating})
+	</insert>
 </mapper>

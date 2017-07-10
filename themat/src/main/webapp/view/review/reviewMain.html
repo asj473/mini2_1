@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>리뷰 게시판</title>
 <style>
-	@import url(https://fonts.googleapis.com/css?family=Raleway);
+/* 메뉴 */
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 body {
   margin: 0px;
 }
- nav { 
- /*    margin-top: 40px; */ 
+nav#paginav{
+	text-align: center;
+}
+#nav-3 { 
+     margin-bottom: 40px;  
    padding: 24px; 
    text-align: center; 
    font-family: Raleway; 
    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); 
+    background: #EEA200;
  } 
-#nav-3 {
-  background: #EEA200;
-}
 .link-3 {
   transition: 0.4s;
   color: #ffffff;
@@ -31,7 +33,215 @@ body {
   color: #EEA200;
   padding: 24px 10px;
 }
+.link-3.select {
+
+}
+
+/* 가게 */
+
+.title-pen {
+  color: #333;
+  font-family: "Coda", sans-serif;
+  text-align: center;
+}
+.title-pen span {
+  color: #55acee;
+}
+
+.user-profile {
+padding-top:10px;
+/*    margin: 20px; */
+	width: 100%; 
+  height: 13em;
+  background: #fff;
+  border : 1px #4eb6b6 solid;
+  border-radius: .3em;
+  box-sizing: border-box;
+}
+
+.user-profile  .username {
+  margin: auto;
+  margin-top: -5em;
+  margin-left: 220px;
+  color: #658585;
+  font-size: 2em;
+  font-family: "Coda", sans-serif;
+  font-weight: bold;
+}
+.user-profile  .bio {
+  margin: auto;
+/*   display: inline-block; */
+  margin-left: 230px;
+  color: #e76043; 
+  font-size: .87em;
+  font-family: "varela round", sans-serif;
+}
+.user-profile > .description {
+  margin: auto;
+  margin-top: 1.35em;
+  margin-right: 4.43em;
+  width: 14em;
+  color: #c0c5c5; 
+  font-size: .87em;
+  font-family: "varela round", sans-serif;
+}
+.user-profile > img.avatar {
+	padding: .7em;
+  margin-left: .3em;
+  margin-top: .3em;
+  height:200px;
+  width: 200px;
+  border-radius: 18em;
+}
+
+.user-profile div.data {
+/*  	margin: 2em auto; */
+	height: 3.0em;
+  background: #4eb6b6;
+  text-align: center;
+  border-radius: 0 0 .3em .3em;
+}
+.user-profile li {
+	margin: 0 auto;
+  padding: 1.30em; 
+  width: 33.33334%;
+  display: table-cell;
+  text-align: center;
+}
+
+.user-profile span {
+	font-family: "varela round", sans-serif;
+	color: #e3eeee;
+  white-space: nowrap;
+  font-size: 1.27em;
+  font-weight: bold;
+}
+.user-profile span:hover {
+  color: #daebea;
+}
+/* 글쓰기 */
+form {
+/*  position: relative; */
+/*  top: 40px; */
+ border-radius: 4px;
+ width: 100%;
+/*  height: 200px; */
+ margin: 0 auto;
+ padding:30px;
+}
+
+form textarea {
+ border-radius: 2px;
+ box-shadow:  0px 2px 11px 0px rgba(0, 0, 0, 0.3);
+ border: 1px solid #e2e6e6;
+ margin: 10px 0 10px 0;
+ font-family: 'Open Sans', sans-serif;
+ outline: none;
+ width: 100%;
+ height: 200px;
+}
+
+form span.counter {
+ float: right;
+ color: black;
+}
+
+form p.info {
+ font-size: 20px;
+ color: black;
+}
+form p.info > span {
+ color: black; 
+}
+
+
+form input.btn {
+ cursor: pointer;
+/*  box-shadow:  0px 2px 11px 0px rgba(0, 0, 0, 0.3); */
+ border: 1px solid #A8F1FF;
+ border-radius: 2px;
+ background-color:#0093B0;
+ color: #fff;
+ float: right;
+ padding: 10px;
+ height: 50px;
+}
+/* 뼐점 */
+.star{
+	font-size:  30px;
+	color : #FFE200!important;
+}
+#reviewStars-input input:checked ~ label, #reviewStars-input label, #reviewStars-input label:hover, #reviewStars-input label:hover ~ label {
+  background: url('http://positivecrash.com/wp-content/uploads/ico-s71a7fdede6.png') no-repeat;
+}
+
+#reviewStars-input {
+  
+  /*fix floating problems*/
+  overflow: hidden;
+  *zoom: 1;
+  /*end of fix floating problems*/
+  
+  position: relative;
+  float: left;
+}
+
+#reviewStars-input input {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  
+  width: 43px;
+  height: 40px;
+  
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+
+#reviewStars-input input:checked ~ label {
+  background-position: 0 -40px;
+  height: 40px;
+  width: 43px;
+}
+
+#reviewStars-input label {
+  background-position: 0 0;
+  height: 40px;
+  width: 43px;
+  float: right;
+  cursor: pointer;
+  margin-right: 10px;
+  
+  position: relative;
+  z-index: 1;
+}
+
+#reviewStars-input label:hover, #reviewStars-input label:hover ~ label {
+  background-position: 0 -40px;
+  height: 40px;
+  width: 43px;
+}
+
+#reviewStars-input #star-0 {
+  left: 0px;
+}
+#reviewStars-input #star-1 {
+  left: 53px;
+}
+#reviewStars-input #star-2 {
+  left: 106px;
+}
+#reviewStars-input #star-3 {
+  left: 159px;
+}
+#reviewStars-input #star-4 {
+  left: 212px;
+}
+#reviewStars-input #star-5 {
+  left: 265px;
+}
 </style>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
 <script src="/themat/lib/js/jquery.min.js"></script>
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -55,53 +265,91 @@ body {
 	<link rel="stylesheet" href="/themat/lib/css/style.css">
 	
 	<script src="/themat/lib/js/modernizr-2.6.2.min.js"></script>
+	
+	
+	<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "#contents",
+            theme: "modern",
+            language: "ko",
+            height:500,
+            min_height: 300,
+            menubar:false,
+            plugins: "autolink autosave code link media image table textcolor autoresize",
+            toolbar: "undo redo | styleselect | forecolor bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | table link media custom_image code ",
+            setup: function(editor) {
+            editor.addButton('custom_image', {
+                    title: '이미지삽입',
+                    icon: 'image',
+                    onclick: function() {
+                        window.open("/tinymce/popup/photo_upload.html","tinymcePop","width=400,height=350");
+                    }
+                });
+            }
+
+        });
+    </script>
+	
 </head>
 <body>
 
 <!-- <div id="fh5co-container"> -->
 
-	<div class="flexslider">
-		<div class="fh5co-overlay"></div>
-	</div>
+<!-- 	<div class="flexslider"> -->
+<!-- 		<div class="fh5co-overlay"></div> -->
+<!-- 	</div> -->
 		
 	<div class="js-sticky">
 		<div class="fh5co-main-nav">
 			<div class="container-fluid">
 				<div class="fh5co-menu-1">
-					<a href="/themat/index.html" data-nav-section="events">home</a>
-					<a href="#" data-nav-section="features">Gallery</a>
+					<a href="/themat/index.html">home</a>
+					<a href="#" data-nav-section="gallery">Gallery</a>
 				</div>
 				<div class="fh5co-logo">
 					<a href="../../index.html">Themat</a>
 				</div>
 				<div class="fh5co-menu-2">
-					<a href="#" data-nav-section="menu">Review</a>
-					<a href="#" data-nav-section="reservation">Q&A</a>
+					<a href="../../index.html" data-nav-section="review">Review</a>
+					<a href="../../index.html" data-nav-section="qna">Q&A</a>
 				</div>
 			</div>
 		</div>
 	</div>
 		
 		
-	<div id="fh5co-menus" data-section="menu">
+	<div id="fh5co-menus" data-section="review">
 	
 	<nav id="nav-3">
-  		<a class="link-3" href="#" data-nav-section="hom">한식</a>
-  		<a class="link-3" href="#">분식</a>
- 		<a class="link-3" href="#">일식/돈까스</a>
-  		<a class="link-3" href="#">중식</a>
-  		<a class="link-3" href="#">족발/보쌈</a>
+	
+  		<a class="link-3" href="javascript:listStore('한식',1)" data-nav-section="hom">한식</a>
+  		<a class="link-3" href="javascript:listStore('분식',1)">분식</a>
+ 		<a class="link-3" href="javascript:listStore('일식/돈까스',1)">일식/돈까스</a>
+  		<a class="link-3" href="javascript:listStore('중식',1)">중식</a>
+  		<a class="link-3" href="javascript:listStore('족발/보쌈',1)">족발/보쌈</a>
+  		<a class="link-3" href="javascript:listStore('퍠스트푸드',1)">퍠스트푸드</a>
+  		
 	</nav>
 
 	
-	<div id="test"></div>
-	<div class="container block-center" data-section="hom">
-		<div id="list">
+	<div id="list-store"></div>
+	<div class="container" data-section="hom">
+		<!-- <div class="editor">
+            <textarea id="contents" name="contents"></textarea>
+            <button type="button" id="regTest">등록</button>
+        </div> -->
+		
+		<div id="detail-store">
+		</div>
+		<div id="list-review">
 		</div>
 		
-		<nav>
+		
+		<nav id="paginav"> 
 			<ul class="pagination"></ul>
 		</nav>
+		
 	</div>
 	
 	</div>
@@ -136,6 +384,7 @@ body {
 	</div>
 </div>
 
+
 <script id="review-store" type="text/x-handlebars-template">
 <div id="fh5co-events" data-section="events" style="background-image: url(/themat/lib/images/slide_2.jpg);" data-stellar-background-ratio="0.5">
 	<div class="fh5co-overlay"></div>
@@ -145,11 +394,9 @@ body {
 {{#list}} 
 					<div class="col-md-4">
 						<div class="fh5co-event">
-							<h3>{{name}}</h3>
-							<span class="fh5co-event-meta">{{rating}}</span>
-							<img src="{{img}}" class=".img-thumbnail" alt="Cinque Terre">
-							<img src="{{img}}" style="border:tomato;" width="200px" heigth="200px" />
-							<!--<p><a href="#" class="btn btn-primary btn-outline">Read More</a></p>--!>
+							<span class="fh5co-event-meta"><h3>{{name}}</h3></span>
+							<span class="fh5co-event-meta star">{{ratingStr rating}}</span>
+	<p><a href="javascript:detailStore({{no}});" class="btn btn-primary btn-outline"><img src="{{img}}"  width="200px" heigth="200px" /></a></p>
 						</div>
 					</div>
 {{/list}} 
@@ -160,56 +407,94 @@ body {
 </script>
 
 <script id="entry-template" type="text/x-handlebars-template"> 
-	<table>
-		<thead>
-		<tr>
-			<th>가</th>		
-			<th>나</th>		
-			<th>다</th>		
-			<th>라</th>		
-			<th>마</th>		
-			<th>바</th>		
-			<th>사</th>		
-		</tr>
-		</thead>
-		<tbody>
-       	 {{#list}} 
-        <tr> 
-            <td>{{no}}</td> 
-            <td>{{storeNo}}</td> 
-            <td>{{id}}</td> 
-            <td><a href='javascript:'>{{title}}</a></td> 
-            <td>{{content}}</td> 
-            <td>{{rating}}</td> 
-            <td>{{regDate}}</td> 
-        </tr> 
-        {{/list}} 
-		</tbody>
-	</table>
+	{{#list}} 
+	<div class="media">
+  		<div class="media-left media-top">
+    	<img src="img_avatar1.png" class="media-object" style="width:60px">
+  		</div>
+  		<div class="media-body">
+    	<h4 class="media-heading star">{{ratingStr rating}}</h4>
+    	<div style="float: none;"><p>{{id}}</p></div>
+    	<div style="float: none;"><p>{{regDate}}</p></div>
+    	<div style="float: none;"><p>{{content}}</p></div>
+  		</div>
+	</div>	
+	{{/list}}
 </script>
 
+<script id="review-list" type="text/x-handlebars-template">
+{{#store}}
+<div class="user-profile data">
+<img class="avatar" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTF_erFD1SeUnxEpvFjzBCCDxLvf-wlh9ZuPMqi02qGnyyBtPWdE-3KoH3s" alt="Ash" />
+	<div class="username">{{name}}</div>
+	<div class="bio">{{address}}</div>
+	<div class="bio">{{call}}</div>
+	<div class="bio">{{rating}}</div>
+</div>
+<div>
+<form id="enquiry" action="">
+<div id="reviewStars-input">
+	<input id="star-4" type="radio" name="reviewStars" value="5"/>
+	<label title="gorgeous" for="star-4"></label>
+	
+	<input id="star-3" type="radio" name="reviewStars" value="4"/>
+	<label title="good" for="star-3"></label>
+	
+	<input id="star-2" type="radio" name="reviewStars" value="3"/>
+	<label title="regular" for="star-2"></label>
+	
+	<input id="star-1" type="radio" name="reviewStars" value="2"/>
+	<label title="poor" for="star-1"></label>
+	
+	<input id="star-0" type="radio" name="reviewStars" value="1"/>
+	<label title="bad" for="star-0"></label>
+</div>
+<span class="counter">2000</span>
+<textarea maxlength="2000" name="message" id="message" placeholder="Add your comment!"></textarea>
+<p class="info">Min length: 10<span></span><input class="btn" type="button" onclick="javascript:registReview({{no}});" value="Add Comment"</p>
+</form>
+<div>
+{{/store}}
+</script>
 
 <script>
-	function listStore(pageNo){
+	function listStore(category, pageNo){
 		if (pageNo === undefined) {
 			pageNo = 1;
 		}
+		if(category === undefined) {
+			category = "한식";	
+		}
 		$.ajax({
 			url : "/themat/review/listStore.do",
-			data: {pageNo : pageNo},
+			data: {
+				pageNo : pageNo,
+				category : category				
+			},
 			dataType : "json"
 		}).done(function(result){
 // 			console.dir(result);
-			var source = $("#review-store").html(); 
-			//핸들바 템플릿 컴파일
-			var template = Handlebars.compile(source); 
-			//핸들바 템플릿에 데이터를 바인딩해서 HTML 생성
-			var html = template(result);
-			//생성된 HTML을 DOM에 주입
-			//$('#list').html(html);
-			$('#test').html(html);
+			$("#detail-store").html("");
+			$("#list-review").html("");
+			$("nav > ul.pagination").html("");
 			
-			console.dir(result.pageResult);
+			var source = $("#review-store").html(); 
+			Handlebars.registerHelper('ratingStr', function (rating) {
+				var star = "";
+				for(var i = 0; i < rating; i++){
+					star +="★";
+				}
+				for(var i = rating; i < 5; i++){
+					star +="☆";
+				}
+				return star;
+			});
+			var template = Handlebars.compile(source); 
+			var html = template(result);
+			$('#list-store').html(html);
+			console.log(result.list[0].rating);
+			console.log(result.list[0].ratingStr);
+// 			console.dir(result.pageResult);
 			makePageLink(result.pageResult);
 		});
 	}
@@ -262,40 +547,111 @@ body {
 		$("nav > ul.pagination").html(html);
 	}
 	
-	function listReview(no){
+	
+	function detailStore(no){
 		$.ajax({
-			url : "/themat/review/listReview.do",
+			url : "/themat/review/detailStore.do",
 			data : {no:no},
 			dataType : "json"
 		}).done(function(result){
-			console.dir(result);
+			$("#list-store").html("");
+			$("nav > ul.pagination").html("");
 			
-			var store = result.store;
-			console.log(store);
-			var html = "";
-			html += "<div class='wall'>";
-			html += "<ul>";
-			html += "<li>"+store.name+"</li>";
-			html += "<li>"+store.address+"</li>";
-			html += "<li>"+store.call+"</li>";
-			html += "<li>"+store.rating+"</li>";
-			html += "</ul>";
-			html += "</div>";
-			$('#list').html(html);
+			var html = "<button type='button' onclick='javascript:listStore();'>목록</button>";
 			
-			var source = $("#entry-template").html(); 
-			//핸들바 템플릿 컴파일
+			var source = $("#review-list").html(); 
 			var template = Handlebars.compile(source); 
-			//핸들바 템플릿에 데이터를 바인딩해서 HTML 생성
-			html = template(result);
-			//생성된 HTML을 DOM에 주입
-			$('#list').append(html);
+			html += template(result);
+			$('#detail-store').html(html);
+			$('form#enquiry input.btn').hide();
 			
+			listReview(no,1);
 		});
 	}
 	
-	function detailReview(){
-		
+	function listReview(no, pageNo){
+// 		console.log(no);
+// 		console.log(pageNo);
+		if (pageNo === undefined) {
+			pageNo = 1;
+		}
+		$.ajax({
+			url : "/themat/review/listReview.do",
+			data : {
+				no:no,
+				pageNo : pageNo
+			},
+			dataType : "json"
+		}).done(function(result){
+			$("#list-store").html("");
+			$("nav > ul.pagination").html("");
+			
+			var source = $("#entry-template").html(); 
+			var template = Handlebars.compile(source);
+			Handlebars.registerHelper('ratingStr', function (rating) {
+				var star = "";
+				for(var i = 0; i < rating; i++){
+					star +="★";
+				}
+				for(var i = rating; i < 5; i++){
+					star +="☆";
+				}
+				return star;
+			});
+			var html = template(result);
+			if(pageNo == 1){
+				$('#list-review').html(html);
+			}else {
+				$('#list-review').append(html);
+			}
+ 			if(result.list.length!=0){
+				reviewPageLink(result.pageResult, no);
+ 			}
+		});
+	}
+
+	
+	function reviewPageLink(data, no){
+		console.log("와라");
+		var html="";
+		if(data.lastPage!=data.pageNo){
+			html += "<button type='button' onclick='javascript:listReview(";
+			html += no + ", " + (data.pageNo + 1);
+			html += ")'>더보기</button>";
+		}
+
+		$("nav > ul.pagination").html(html);
+	}
+	
+   $("#regTest").on("click", function(){
+	   console.log($("#contents").val());
+	   console.log($("#contents").text());
+   });
+	    
+	function registReview(no){
+		$.ajax({
+			url : "/themat/review/regist.do",
+			data : {
+				storeNo:no,
+				content:$("form#enquiry textarea").val(),
+				rating:$("form#enquiry div#reviewStars-input input:checked").val()
+				},
+			method : "POST",
+			dataType : "json",
+			beforeSend : function(){
+				if(!$("form#enquiry div#reviewStars-input input:checked").val()){
+					alert("별점을 매겨주세요");
+					return false;
+				}
+			}
+		}).done(function(result){
+// 			console.log("아노아");
+			$("form#enquiry textarea").val("");
+			$('form#enquiry span.counter').html("2000");
+			$('form#enquiry div#reviewStars-input input').prop("checked", "unchecked");
+			$('form#enquiry input.btn').hide();
+			listReview(no,1);
+		});
 	}
 	
 	function deleteReview(){
@@ -305,6 +661,43 @@ body {
 	function updateReview(){
 		
 	}
+// 	$(document).ready(function () {
+// 	    var comment = $('form#enquiry textarea'),
+// 	        counter = '',
+// 	        counterValue = 140, //change this to set the max character count
+// 	        minCommentLength = 10, //set minimum comment length
+// 	        $commentValue = comment.val(),
+// 	        $commentLength = $commentValue.length(),
+// 	        submitButton = 
+	  
+// 	    $('form').prepend('<span class="counter"></span>').append('<p class="info">Min length: <span></span></p>');
+// 	    counter = $('span.counter');
+// 	    counter.html(counterValue); //display your set max length
+// 	    comment.attr('maxlength', counterValue); //apply max length to textarea
+// 	    $('form').find('p.info > span').html(minCommentLength);
+// 	    // everytime a key is pressed inside the textarea, update counter
+// 	    comment.keyup(function () {
+	      
+// 	    });
+// 	  });
+	
+	
+	$('#detail-store').on(
+			"keyup",
+			"form#enquiry textarea",
+			function(){
+				var $this = $(this);
+			      $commentLength = $this.val().length; 
+			      $('form#enquiry span.counter').html(2000 - $commentLength);
+			      if ($commentLength > 10 - 1) {
+			    	  $('form#enquiry input.btn').fadeIn(200);
+			      } else {
+			    	  $('form#enquiry input.btn').fadeOut(200);
+			      }
+			}
+	);
+	
+	
 	
 	$("#list").on(
   			 "click", 
@@ -314,9 +707,6 @@ body {
   				listReview();
   			 }
 	);
-// 	$("#test").on("click", function(){
-// 		listReview();
-// 	});
 	
 	listStore();
 </script>

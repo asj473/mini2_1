@@ -7,6 +7,7 @@ public class StoreVO {
 	private String address;
 	private String call;
 	private String img;
+	private int rating;
 	
 	public String getImg() {
 		return img;
@@ -14,9 +15,9 @@ public class StoreVO {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	private int rating;
 	public int getNo() {
 		return no;
+		
 	}
 	public void setNo(int no) {
 		this.no = no;
