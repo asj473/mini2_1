@@ -558,9 +558,9 @@ form input.btn {
 		}).done(function(result){
 			$("#list-store").html("");
 			$("nav > ul.pagination").html("");
-			
-			var html = "<button type='button' onclick='javascript:listStore();'>목록</button>";
-			
+			var html="<div style='text-align:right;'>";
+			html += "<button type='button' class='btn btn-primary btn-outline' onclick='javascript:listStore();'>목록</button>";
+			html += "</div>";
 			var source = $("#review-list").html(); 
 			var template = Handlebars.compile(source); 
 			html += template(result);
