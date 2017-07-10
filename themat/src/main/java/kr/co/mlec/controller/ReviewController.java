@@ -1,10 +1,9 @@
 package kr.co.mlec.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +22,39 @@ public class ReviewController {
 
 	@Autowired
 	private ReviewService reviewService;
+	
+	
+	
+	
+	@RequestMapping("/listMain.do")
+	@ResponseBody
+	public Map<String, Object> listMain() throws Exception{
+		List<StoreVO> list1 = reviewService.listStore("한식", new PageVO()).subList(0, 3);
+		List<StoreVO> list2 = reviewService.listStore("분식", new PageVO()).subList(0, 3);
+		List<StoreVO> list3 = reviewService.listStore("일식/돈까스", new PageVO()).subList(0, 3);
+		List<StoreVO> list4 = reviewService.listStore("중식", new PageVO()).subList(0, 3);
+		List<StoreVO> list5 = reviewService.listStore("족발/보쌈", new PageVO()).subList(0, 3);
+		List<StoreVO> list6 = reviewService.listStore("패스트푸드", new PageVO()).subList(0, 3);
+
+		List<String> category = new ArrayList<>();
+		category.add("한식");
+		category.add("분식");
+		category.add("일식/돈까스");
+		category.add("중식");
+		category.add("족발/보쌈");
+		category.add("패스트푸드");
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("category", category);
+		map.put("list1", list1);
+		map.put("list2", list2);
+		map.put("list3", list3);
+		map.put("list4", list4);
+		map.put("list5", list5);
+		map.put("list6", list6);
+		
+		return map;
+	}
 	
 	@RequestMapping("/listStore.do")
 	@ResponseBody
