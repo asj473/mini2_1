@@ -12,11 +12,21 @@
 	</resultMap>
 	
 	<!-- 리스트 -->
-	<select id="selectBoard" resultMap="qnaMap">
-	    select * 
-		  from qna_board  
+	<select id="selectBoard" parameterType="PageVO" resultMap="qnaMap">
+<!-- 	    select *  -->
+<!-- 		  from qna_board   -->
+<!-- 		 order by no desc -->
+		 
+		 SELECT * FROM qna_board 
 		 order by no desc
+		 LIMIT #{begin}, #{end}
+		
 	</select>
+<!-- 	페이징 위한 카운트 -->
+	<select id="selectCount" parameterType="PageVO" resultType="int">
+    	select count(*)
+          from qna_board 
+    </select> 
 
 	<!-- 디테일 -->
 	<select id="selectBoardByNo" parameterType="int" resultMap="qnaMap">
@@ -48,28 +58,49 @@
 	
 	</update>
 	
-	<!-- 
-	<resultMap id="boardFileMap" type="boardFileVO" >
-		<result property="fileNo" column="file_no"/>
+	
+
+<!-- 댓글 처리 DAO 시작 -->
+	<!-- ################################# -->	
+	
+    <resultMap id="boardCommentMap" type="QnaCommentVO" >
+		<result property="commentNo" column="comment_no"/>
 		<result property="no" column="no"/>
-		<result property="oriName" column="ori_name"/>
-		<result property="systemName" column="system_name"/>
-		<result property="filePath" column="file_path"/>
-		<result property="fileSize" column="file_size"/>
+		<result property="userId" column="user_id"/>
+		<result property="content" column="content"/>
+		<result property="regDate" column="reg_date"/>
 	</resultMap>
 	
-	<select id="selectBoardFileByNo" parameterType="int" resultMap="boardFileMap">
-	    select file_no,
+	<insert id="insertBoardComment" parameterType="QnaCommentVO">
+		insert into qna_comment(
+			 no, user_id, content , reg_date
+		) values (
+			#{no}, #{userId}, #{content}, now()
+		)
+	</insert>
+	
+	<select id="selectBoardCommentByNo" parameterType="int" resultMap="boardCommentMap">
+	    select comment_no,
 	           no,
-	           ori_name,
-	           system_name,
-	           file_path,
-	           file_size
-	      from tb_board_file
-	     where no = #{no}      
-	</select>  
- -->
-
+	           user_id,
+	           content,
+	           reg_date
+	      from qna_comment
+	     where no = #{no} 
+	  order by comment_no  desc  
+	</select>
+	
+	<delete id="deleteBoardComment" parameterType="int">
+	    delete 
+	      from qna_comment
+	     where comment_no = #{commentNo}
+	</delete>
+	
+	<update id="updateBoardComment" parameterType="QnaCommentVO">
+	    update qna_comment
+	       set content = #{content}
+	     where comment_no = #{commentNo}
+	</update>
 
 
 
