@@ -182,15 +182,7 @@
 			html += "<tr id='row" + comment.commentNo + "'>";
 			html += "<td>" + comment.userId + "</td>";
 			html += "<td>" + comment.content + "</td>";
-			
-			var date = new Date(comment.regDate);
-			var time = date.getFullYear() + "-"
-			         + (date.getMonth() + 1) + "-"
-			         + date.getDate() + " "
-			         + date.getHours() + ":"
-			         + date.getMinutes() + ":"
-			         + date.getSeconds();
-			html += "<td>" + time + "</td>";
+			html += "<td>" + comment.regDate + "</td>";
 			html += "<td>";
 			html += "  <a href='javascript:commentDelete(" + comment.commentNo + ");'>삭제</a>";	
 			html += "  <a href='javascript:commentUpdateForm(" + comment.commentNo + ");'>수정</a>";	
