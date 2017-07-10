@@ -62,6 +62,7 @@
 		<div id="ditail" class="container"></div>
 		
 	<!--  코멘트 시작 폼  -->
+	<div id="commentline">
 		<div id="comment" class="container">
 			<form id="rForm" method="post" action="commentRegist.do">
 				<table width="70%">
@@ -76,6 +77,7 @@
 		
 		<div id="commentList" class="container" ></div>
 		
+	</div>
 		
 		
 	</div> 
@@ -91,10 +93,9 @@
 	<script id="entry-template" type="text/x-handlebars-template">
 	<div class="container">
                  {{#list}} 
-				<span>번호</span><span>{{no}}</span><span>날짜</span><span>{{regDate}}</span><br/>
-                <span>제목</span><span>{{title}} </span> <br/>
-				<span>글쓴이</span><span>{{writer}}</span> <br/>
-				<span>내용</span><span>{{content}}</span> 
+				<span  >번호<{{no}}></span><span>날짜<{{regDate}}></span><span>작성자:{{writer}}</span><br/>
+                <span class='form-control'>{{title}} </span> <br/>
+				<div class='form-control'>{{content}}</div> 
                  {{/list}} 
 		</div>
      </script>
@@ -104,10 +105,10 @@
 	<form action='update.do' method='post' >
 			{{#list}}
 	  		<input type='hidden' name='no' value='{{no}}' />
-	  제목 : 		<input type='text' name='title' value='{{title}}' /><br>
-	  글쓴이 : 		<input type='text' name='writer' value='{{writer}}' /><br>
-	  내용 : <br>
-	 			<textarea id='ckk' name='content' rows='5' cols='70'>{{content}}</textarea><br>
+	  		<input class='form-control'  type='text' placeholder='제목을 입력하세요' name='title' value='{{title}}' />
+	   		<input class='form-control' type='text' placeholder='글쓴이 입력하세요' name='writer' value='{{writer}}' />
+	   
+	 			<textarea id='ckk' placeholder='내용을 입력하세요' name='content' rows='5' cols='70'>{{content}}</textarea><br>
 				<input type='submit' value='등록' />
 			{{/list}} 
 		</form>
@@ -323,7 +324,7 @@
 			var template = Handlebars.compile(source); 
 			var html = template(result);
 			$('#ditail').html(html);
-			
+			$('#commentline').hide();
 			 //ck에디터
 		  CKEDITOR.replace("ckk");
 		  

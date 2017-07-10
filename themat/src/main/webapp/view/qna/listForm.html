@@ -62,7 +62,7 @@
 	<div id="tlist" class="container" > </div>
 	
 	
-	 	<nav class="container">
+	 	<nav id="page1" class="container">
 			<ul class="pagination"></ul>
 			
 		</nav>
@@ -112,23 +112,21 @@
                  </tr> 
                  {{/list}} 
 		</table>
-	<button class="btn btn-primary btn-outline"> 글쓰기 </button>
+	<button  class="btn btn-primary btn-outline"> 글쓰기 </button>
      </script>
 		
 		<!-- 글쓰기 뿌리는 핸들러 -->
 	<script id="write-template" type="text/x-handlebars-template">
-		<form action='write.do' method='post' >
-	  제목 : 	<input type='text' name='title' /><br>
-	  글쓴이 : <input type='text' name='writer' /><br>
-	  내용 : <br>
-	 		<textarea id='ckk' name='content' rows='5' cols='70'></textarea><br>
+		<form action='/themat/qna/write.do' method='post' >
+	   	<input class='form-control' placeholder='제목을 입력하세요' type='text' name='title' />
+	   <input class='form-control' placeholder='글쓴이을 입력하세요' type='text' name='writer' />
+	   
+	 		<textarea class='form-control'  id='ckk' name='content' rows='5' cols='70' placeholder='제목을 입력하세요' ></textarea><br>
 			<input class="btn btn-primary btn-outline" type='submit' value='등록' />
 		</form>
 	<a href='listForm.do'>목록</a>
 
-	
      </script>
-		
 	 
 	 
 	 
@@ -151,6 +149,7 @@
 		$('#tlist').html(html);
 		
 		makePageLink(result.pageResult);
+		
 	})}
 	
 	//글쓰기폼 핸들러 뿌리기
@@ -159,6 +158,7 @@
 		var template = Handlebars.compile(source); 	
 		$('#tlist').html(template);
 		CKEDITOR.replace("ckk");
+		$('#page1').hide();
 	})
 	
 	function makePageLink(data) {
