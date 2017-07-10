@@ -329,7 +329,7 @@ form input.btn {
  		<a class="link-3" href="javascript:listStore('일식/돈까스',1)">일식/돈까스</a>
   		<a class="link-3" href="javascript:listStore('중식',1)">중식</a>
   		<a class="link-3" href="javascript:listStore('족발/보쌈',1)">족발/보쌈</a>
-  		<a class="link-3" href="javascript:listStore('패스트푸드',1)">퍠스트푸드</a>
+  		<a class="link-3" href="javascript:listStore('패스트푸드',1)">패스트푸드</a>
   		
 	</nav>
 
@@ -397,7 +397,7 @@ form input.btn {
 						<div class="fh5co-event">
 							<span class="fh5co-event-meta"><h3>{{name}}</h3></span>
 							<span class="fh5co-event-meta star">{{ratingStr rating}}</span>
-	<p><a href="javascript:detailStore({{no}});" class="btn btn-primary btn-outline"><img src="{{img}}"  width="200px" heigth="200px" /></a></p>
+	<p><a href="javascript:detailStore({{no}});" class="btn btn-primary btn-outline" ><img src="{{img}}" style="width:150px; max-height:150px;" /></a></p>
 						</div>
 					</div>
 {{/list}} 
@@ -411,7 +411,7 @@ form input.btn {
 	{{#list}} 
 	<div class="media">
   		<div class="media-left media-top">
-    	<img src="img_avatar1.png" class="media-object" style="width:60px">
+    	<img src="{{img}}" class="media-object" style="width:60px">
   		</div>
   		<div class="media-body">
     	<h4 class="media-heading star">{{ratingStr rating}}</h4>
@@ -426,7 +426,7 @@ form input.btn {
 <script id="review-list" type="text/x-handlebars-template">
 {{#store}}
 <div class="user-profile data">
-<img class="avatar" src="{{img}}" alt="Ash" />
+<img class="avatar" src="{{img}}" width="50px" height="50px" alt="Ash" />
 	<div class="username">{{name}}</div>
 	<div class="bio">{{address}}</div>
 	<div class="bio">{{call}}</div>
@@ -650,6 +650,7 @@ form input.btn {
 			$("form#enquiry textarea").val("");
 			$('form#enquiry span.counter').html("2000");
 			$('form#enquiry div#reviewStars-input input').prop("checked", "unchecked");
+			 $('form#enquiry span').css("color","red");
 			$('form#enquiry input.btn').hide();
 			listReview(no,1);
 		});
