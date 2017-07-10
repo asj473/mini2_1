@@ -114,11 +114,12 @@ public class QnaController {
 	}
 	
 	//댓글 수정commentUpdate 
-//	@RequestMapping("/board/commentUpdate.do")
-//	@ResponseBody
-//	public List<BoardComment> commentUpdateAjax(BoardComment comment) throws Exception {
-//		return service.commentUpdate(comment);
-//	}
+	@RequestMapping("/commentUpdate.do")
+	@ResponseBody
+	public List<QnaCommentVO> commentUpdateAjax(QnaCommentVO comment) throws Exception {
+		
+		return qnaService.commentUpdate(comment);
+	}
 	
 	
 }

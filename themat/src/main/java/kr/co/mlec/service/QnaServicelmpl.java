@@ -67,4 +67,10 @@ public class QnaServicelmpl implements QnaService{
 		return mapper.selectBoardCommentByNo(comment.getNo());
 	}
 
+	@Override
+	public List<QnaCommentVO> commentUpdate(QnaCommentVO comment) throws Exception {
+		mapper.updateBoardComment(comment);
+		return mapper.selectBoardCommentByNo(comment.getNo());
+	}
+
 }

@@ -68,7 +68,7 @@
 				<tr>
 					<td><input type="text" name="userId" value="" /></td>
 					<td><textarea name="content" rows="2" cols="50"></textarea></td>
-					<td><input type="submit" value="등록" /></td>
+					<td><input class="btn btn-primary btn-outline" type="submit" value="등록" /></td>
 				</tr>	
 				</table>
 			</form>
@@ -114,10 +114,11 @@
 	<a href='listForm.do'>목록</a>
      </script>
 	
-		
-		<button type="button">삭제</button>
-		<button type="button">수정</button>
-		<button type="button">목록</button>
+	<div class="container">
+		<button class="btn btn-primary btn-outline" type="button">삭제</button>
+		<button class="btn btn-primary btn-outline" type="button">수정</button>
+		<button class="btn btn-primary btn-outline" type="button">목록</button>
+	</div>
 		
 	 
 	 
@@ -278,7 +279,7 @@
 			url: "commentUpdate.do",
 			type: "POST",
 			data: {
-				no: "${board.no}", 
+				no: getparam('bno'), 
 				content: $("#modRow" + commentNo + " textarea[name=content]").val(), 
 				commentNo: commentNo
 			},

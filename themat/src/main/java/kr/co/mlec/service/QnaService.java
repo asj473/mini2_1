@@ -21,6 +21,6 @@ public interface QnaService {
 	public List<QnaCommentVO> commentList(int no) throws Exception;
 	public List<QnaCommentVO> commentRegist(QnaCommentVO comment) throws Exception;
 	public List<QnaCommentVO> commentDelete(QnaCommentVO comment) throws Exception;
-	
+	public List<QnaCommentVO> commentUpdate(QnaCommentVO comment) throws Exception;
 	
 }
