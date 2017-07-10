@@ -420,6 +420,7 @@ form input.btn {
     	<div style="float: none;"><p>{{content}}</p></div>
   		</div>
 	</div>	
+<hr>
 	{{/list}}
 </script>
 
@@ -616,7 +617,7 @@ form input.btn {
 		console.log("와라");
 		var html="";
 		if(data.lastPage!=data.pageNo){
-			html += "<button type='button' onclick='javascript:listReview(";
+			html += "<button type='button' class='btn btn-primary btn-outline' onclick='javascript:listReview(";
 			html += no + ", " + (data.pageNo + 1);
 			html += ")'>더보기</button>";
 		}
